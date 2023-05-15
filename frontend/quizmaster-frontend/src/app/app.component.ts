@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {QuestionService} from "./question.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'quizmaster-frontend';
+
+  constructor(public questionService: QuestionService) {
+  }
+
+  public getQuestions() {
+    this.questionService.findAll();
+  }
 }
