@@ -8,6 +8,7 @@ import { Question } from './question';
 export class QuestionService {
 
   private readonly questionUrl: string;
+  public questions: Question[];
 
   constructor(private http: HttpClient) {
     this.questionUrl = 'http://localhost:8080/quiz'
@@ -17,6 +18,7 @@ export class QuestionService {
       this.http.get<Question[]>(this.questionUrl)
       .subscribe(questions => {
         console.log(questions)
+        this.questions = questions
         }
       );
     }

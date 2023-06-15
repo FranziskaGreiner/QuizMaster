@@ -13,7 +13,7 @@ public class Question {
     private String correct_answer;
     private String explanation;
     private String tip;
-    private List<String> tags;
+    private List<Map<String, String>> tags;
     private String category;
     private String difficulty;
 
@@ -89,11 +89,11 @@ public class Question {
         this.tip = tip;
     }
 
-    public List<String> getTags() {
+    public List<Map<String, String>> getTags() {
         return tags;
     }
 
-    public void setTags(List<String> tags) {
+    public void setTags(List<Map<String, String>> tags) {
         this.tags = tags;
     }
 

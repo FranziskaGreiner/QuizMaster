@@ -1,4 +1,4 @@
-# franziska.greiner.QuizMaster
+# QuizMaster
 
 # 
 

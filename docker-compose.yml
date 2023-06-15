@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: 'docker.io/bitnami/postgresql:15.3.0'
+    container_name: 'postgres'
+    ports:
+      - '5432:5432'
+    volumes:
+      - './data:/bitnami/postgresql'
+    environment:
+      - POSTGRESQL_USERNAME=quizmaster
+      - POSTGRESQL_PASSWORD=LW3iDyg8V3skEYWk
+      - POSTGRESQL_DATABASE=quizmaster
+      - POSTGRESQL_TIMEZONE=Europe/Berlin
+      - POSTGRESQL_LOG_TIMEZONE=Europe/Berlin
+    restart: unless-stopped

@@ -334,6 +334,11 @@
   <!-- Resources -->
   <button (click)="getQuestions()">Start quiz</button>
 
+  <ng-container *ngFor="let data of questionService.questions">
+    {{ data.question }}
+    {{ data.answers }}
+  </ng-container>
+
   <!-- Footer -->
   <footer>
       Love Angular?&nbsp;

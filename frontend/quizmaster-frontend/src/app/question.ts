@@ -7,6 +7,7 @@ export class Question {
   answers: string[];
   multipleCorrectAnswers: boolean;
   correctAnswers: string[];
+  correctAnswer: string;
   explanation: string;
   tip: string;
   tags: string[];
