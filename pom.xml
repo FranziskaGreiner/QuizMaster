@@ -21,7 +21,7 @@
         <maven-surefire-version>2.22.2</maven-surefire-version>
         <junit-version>5.9.2</junit-version>
         <mockito-version>5.2.0</mockito-version>
-        <spring-boot-maven-plugin-version>2.5.7</spring-boot-maven-plugin-version>
+        <spring-boot-maven-plugin-version>3.1.0</spring-boot-maven-plugin-version>
     </properties>
 
     <dependencies>
