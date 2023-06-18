@@ -2,22 +2,34 @@
 
 # 
 
-# Introduction and Goals
+# 1. Einführung und Ziele
 
-## Requirements Overview
+## Übersicht Anforderungen
+QuizMaster ist eine Quizspiel-Anwendung, bei der der Nutzer Fragen und dazugehörige Antwortmöglichkeiten erhält.
+Er kann sich für eine Antwort entscheiden und sieht dann, ob diese der richtigen entspricht.
+Die Anwendung bietet außerdem die Möglichkeit, Fragen je nach Kategorie oder Schwierigkeitsgrad zu filtern.
 
-## Quality Goals
+## Qualitätsziele
+Siehe 
 
 ## Stakeholders
+Das Projekt wird im Rahmen einer Studienarbeit an der Technischen Hochschule Rosenheim umgesetzt.
+Die Stakeholder sind deshalb begrenzt auf den Dozenten und die Studenten des Moduls "Software Qualitätssicherung".
 
 | Role/Name   | Contact        | Expectations       |
 |-------------|----------------|--------------------|
 | *\<Role-1>* | *\<Contact-1>* | *\<Expectation-1>* |
 | *\<Role-2>* | *\<Contact-2>* | *\<Expectation-2>* |
 
-# Architecture Constraints
+# 2. Architecture Constraints
+Die Grundstruktur der Anwendung ist durch die Vorgaben des Dozenten festgelegt.
+Die Anwendung wird demnach als Microservice Anwendung mit folgenden Bestandteilen umgesetzt:
+- Frontend
+- Backend
+- Datenbank
+- Externe REST-API
 
-# System Scope and Context
+# 3. Umfang und Kontext des Systems
 
 ## Business Context
 
@@ -33,9 +45,16 @@
 
 **\<Mapping Input/Output to Channels>**
 
-# Solution Strategy
+# 4. Lösungsstrategie
+## Technische Entscheidungen
 
-# Building Block View
+Die Anwendung wird mit folgendem Technologiestack umgesetzt:
+- Frontend: Angular
+- Backend: Java
+- Datenbank: PostgreSQL
+- Externe API (https://quizapi.io/): REST
+
+# 5. Building Block View
 
 ## Whitebox Overall System
 
@@ -108,7 +127,7 @@ Important Interfaces
 
 *\<white box template>*
 
-# Runtime View
+# 6. Runtime View
 
 ## \<Runtime Scenario 1>
 
@@ -123,7 +142,7 @@ Important Interfaces
 
 ## \<Runtime Scenario n>
 
-# Deployment View
+# 7. Deployment View
 
 ## Infrastructure Level 1
 
@@ -154,7 +173,7 @@ Mapping of Building Blocks to Infrastructure
 
 *\<diagram + explanation>*
 
-# Cross-cutting Concepts
+# 8. Cross-cutting Concepts
 
 ## *\<Concept 1>*
 
@@ -170,17 +189,17 @@ Mapping of Building Blocks to Infrastructure
 
 *\<explanation>*
 
-# Architecture Decisions
+# 9. Architecture Decisions
 
-# Quality Requirements
+# 10. Quality Requirements
 
 ## Quality Tree
 
 ## Quality Scenarios
 
-# Risks and Technical Debts
+# 11. Risks and Technical Debts
 
-# Glossary
+# 12. Glossary
 
 | Term        | Definition        |
 |-------------|-------------------|
@@ -189,6 +208,8 @@ Mapping of Building Blocks to Infrastructure
 
 
 #
+
+**Der Aufbau dieser Dokumentation orientiert sich am offiziellen arc42-Template**
 
 **About arc42**
 
