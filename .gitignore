@@ -13,6 +13,9 @@ app/**/*.js.map
 node_modules/
 bower_components/
 
+frontend/quizmaster-frontend/node_modules/
+frontend/quizmaster-frontend/.angular
+
 # IDEs and editors
 .idea/
 
