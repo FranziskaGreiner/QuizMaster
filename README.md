@@ -47,7 +47,7 @@ Die Anwendung wird demnach als Microservice Anwendung mit folgenden Bestandteile
 
 # 4. Lösungsstrategie
 ## Technische Entscheidungen
-![TechStack](diagrams/TechStack.drawio.png)
+![TechStack](diagrams/TechStack.png)
 
 Die Anwendung wird mit folgendem Technologiestack umgesetzt:
 - Frontend: Angular
