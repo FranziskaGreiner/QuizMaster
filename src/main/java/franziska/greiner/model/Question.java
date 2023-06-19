@@ -1,21 +1,38 @@
-package franziska.greiner.entities;
+package franziska.greiner.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import franziska.greiner.util.AnswersDeserializer;
+
+import javax.persistence.*;
 import java.util.List;
-import java.util.Map;
 
+@Entity
+@Table(name = "questions")
 public class Question {
+    @Id
     private int id;
+    @Column
     private String question;
+    @Column
     private String description;
-    private Map<String, String> answers;
-    private boolean multiple_correct_answers;
-    private Map<String, String> correct_answers;
-    private String correct_answer;
+    @Column(name = "multiple_correct_answers")
+    private boolean multipleCorrectAnswers;
+    @Column
     private String explanation;
+    @Column
     private String tip;
-    private List<Map<String, String>> tags;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "question_tag",
+            joinColumns = @JoinColumn(name = "question_id"),
+            inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    private List<Tag> tags;
+    @Column
     private String category;
+    @Column
     private String difficulty;
+    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    @JsonDeserialize(using = AnswersDeserializer.class)
+    private List<Answer> answers;
 
     public int getId() {
         return id;
@@ -41,36 +58,12 @@ public class Question {
         this.description = description;
     }
 
-    public Map<String, String> getAnswers() {
-        return answers;
+    public boolean isMultipleCorrectAnswers() {
+        return multipleCorrectAnswers;
     }
 
-    public void setAnswers(Map<String, String> answers) {
-        this.answers = answers;
-    }
-
-    public boolean isMultiple_correct_answers() {
-        return multiple_correct_answers;
-    }
-
-    public void setMultiple_correct_answers(boolean multiple_correct_answers) {
-        this.multiple_correct_answers = multiple_correct_answers;
-    }
-
-    public Map<String, String> getCorrect_answers() {
-        return correct_answers;
-    }
-
-    public void setCorrect_answers(Map<String, String> correct_answers) {
-        this.correct_answers = correct_answers;
-    }
-
-    public String getCorrect_answer() {
-        return correct_answer;
-    }
-
-    public void setCorrect_answer(String correct_answer) {
-        this.correct_answer = correct_answer;
+    public void setMultipleCorrectAnswers(boolean multipleCorrectAnswers) {
+        this.multipleCorrectAnswers = multipleCorrectAnswers;
     }
 
     public String getExplanation() {
@@ -89,11 +82,11 @@ public class Question {
         this.tip = tip;
     }
 
-    public List<Map<String, String>> getTags() {
+    public List<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(List<Map<String, String>> tags) {
+    public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
 
@@ -113,5 +106,11 @@ public class Question {
         this.difficulty = difficulty;
     }
 
-    public Question() { }
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
 }
