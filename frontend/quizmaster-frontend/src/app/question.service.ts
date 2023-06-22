@@ -9,7 +9,6 @@ import {Observable} from "rxjs";
 export class QuestionService {
 
   private readonly questionUrl: string;
-  public questions: Question[];
 
   constructor(private http: HttpClient) {
     this.questionUrl = 'http://localhost:8080/quiz'

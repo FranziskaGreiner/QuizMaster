@@ -9,7 +9,7 @@ import {Question} from "./question";
 })
 export class AppComponent {
   title = 'quizmaster-frontend';
-  questions: Question[];
+  questions: Question[] = [];
 
   constructor(private questionService: QuestionService) {
   }
