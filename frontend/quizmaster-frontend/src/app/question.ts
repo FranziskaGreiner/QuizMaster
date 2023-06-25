@@ -1,16 +1,18 @@
 import {Difficulty} from './difficulty.enum'
+import {Answer} from "./answer";
+import {Tag} from "./tag";
 
 export class Question {
-  id: string = '';
+  id: number | undefined;
   question: string = '';
   description: string = '';
-  answers: string[] = [];
+  answers: Answer[] = [];
   multipleCorrectAnswers: boolean | undefined;
   correctAnswers: string[] = [];
   correctAnswer: string = '';
   explanation: string = '';
   tip: string = '';
-  tags: string[] = [];
+  tags: Tag[] = [];
   category: string = '';
   difficulty: Difficulty | undefined;
 }

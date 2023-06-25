@@ -249,6 +249,10 @@
     width: 1920px;
   }
 
+  mat-card, mat-card-title {
+    color: white;
+  }
+
 
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
@@ -296,9 +300,9 @@
 
   <mat-card *ngIf="questions">
     <mat-card-content *ngFor="let data of questions">
-      <p mat-card-title>{{ data.question }}</p>
+      <mat-card-title>{{ data.question }}</mat-card-title>
       <div *ngFor="let answer of data.answers" mat-card-subtitle>
-        <mat-checkbox>{{ answer }}</mat-checkbox>
+        <mat-checkbox *ngIf="answer.answer">{{ answer.answer }}</mat-checkbox>
       </div>
       <mat-divider></mat-divider>
     </mat-card-content>

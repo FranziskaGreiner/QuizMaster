@@ -1,5 +1,6 @@
 package franziska.greiner.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import franziska.greiner.util.AnswersDeserializer;
 import lombok.Data;
@@ -47,6 +48,7 @@ public class Question {
     private Difficulty difficulty;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+    @JsonManagedReference
     @JsonDeserialize(using = AnswersDeserializer.class)
     private List<Answer> answers;
 
