@@ -12,6 +12,8 @@ import franziska.greiner.repository.QuestionRepository;
 import franziska.greiner.util.QuestionDeserializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -20,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@EnableScheduling
 public class QuizApiService {
     private static final int LIMIT = 10;
 
@@ -63,6 +66,7 @@ public class QuizApiService {
         return questionList;
     }
 
+    @Scheduled(cron = "0 0 * * *")
     public void storeQuestions() {
         WebClient.UriSpec<WebClient.RequestBodySpec> uriSpec = webClient.method(HttpMethod.GET);
         WebClient.RequestBodySpec bodySpec = uriSpec.uri(uriBuilder -> uriBuilder
