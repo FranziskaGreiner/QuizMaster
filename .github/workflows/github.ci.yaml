@@ -86,6 +86,6 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           build: npm run build
-          start: 'npm start --port 4200'
+          start: 'npm start'
           wait-on: 'http://localhost:4200'
           working-directory: frontend/quizmaster-frontend
