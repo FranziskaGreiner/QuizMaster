@@ -99,17 +99,5 @@ public class QuizApiService {
                 answerRepository.saveAll(answerList);
             }
         }
-
-        /*Mono<List<Question>> response = bodySpec.retrieve().bodyToFlux(Question.class).collectList().log();
-        List<Question> questionList = response.block();
-        for (Question question : questionList) {
-            List<Answer> answerList = question.getAnswers();
-            question.setAnswers(new ArrayList<>());
-            Question insertedQuestion = questionRepository.save(question);
-            for (Answer answer : answerList) {
-                answer.setQuestion(insertedQuestion);
-            }
-            answerRepository.saveAll(answerList);
-        }*/
     }
 }
