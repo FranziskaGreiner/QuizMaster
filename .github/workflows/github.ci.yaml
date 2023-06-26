@@ -27,14 +27,14 @@ jobs:
           with:
             java-version: 11
         - name: Run Coverage
-          run: mvn clean verify sonar:sonar -Pcoverage
+          run: mvn clean verify
           env:
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         - name: Add coverage to PR
           id: jacoco
           uses: madrapps/jacoco-report@v1.3
           with:
-            paths: ${{ github.workspace }}/build/reports/jacoco/testCoverage/testCoverage.xml
+            paths: ${{ github.workspace }}/target/site/jacoco/jacoco.xml
             token: ${{ secrets.GITHUB_TOKEN }}
             min-coverage-overall: 40
             min-coverage-changed-files: 60
@@ -68,7 +68,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=FranziskaGreiner_QuizMaster
+        run: mvn -B verify jacoco:report org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=FranziskaGreiner_QuizMaster
 
   cypress-e2e:
     runs-on: ubuntu-22.04
