@@ -70,8 +70,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=FranziskaGreiner_QuizMaster
 
-  name: Cypress Tests
-
   cypress-e2e:
     runs-on: ubuntu-22.04
     steps:
