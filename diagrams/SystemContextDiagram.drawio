@@ -1,33 +1,33 @@
-<mxfile host="app.diagrams.net" modified="2023-06-27T10:14:46.312Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0" etag="vIhTV6MQlhbWnt0FVLqE" version="21.5.0" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-27T10:26:38.328Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0" etag="qjEzEzf7vM0d4Bv_99ww" version="21.5.0" type="github">
   <diagram name="Seite-1" id="c1dzLFRzeHo-qwZXP59P">
     <mxGraphModel dx="1562" dy="785" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="B2U6q-5QIGLSwIAsgYjk-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="nRxhFtLmPuZJ_PnHPkGs-1" target="B2U6q-5QIGLSwIAsgYjk-2">
+        <mxCell id="B2U6q-5QIGLSwIAsgYjk-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="1" source="nRxhFtLmPuZJ_PnHPkGs-1" target="B2U6q-5QIGLSwIAsgYjk-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="B2U6q-5QIGLSwIAsgYjk-9" value="REST-ful API" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="B2U6q-5QIGLSwIAsgYjk-8">
+        <mxCell id="B2U6q-5QIGLSwIAsgYjk-9" value="REST-ful API" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;" vertex="1" connectable="0" parent="B2U6q-5QIGLSwIAsgYjk-8">
           <mxGeometry x="-0.1912" y="-4" relative="1" as="geometry">
             <mxPoint x="11" y="-4" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="nRxhFtLmPuZJ_PnHPkGs-1" value="QuizMaster" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#000066;" parent="1" vertex="1">
+        <mxCell id="nRxhFtLmPuZJ_PnHPkGs-1" value="QuizMaster" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#A9C4EB;fontColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="354" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="B2U6q-5QIGLSwIAsgYjk-2" value="QuizAPI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#000099;" vertex="1" parent="1">
+        <mxCell id="B2U6q-5QIGLSwIAsgYjk-2" value="QuizAPI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D4E1F5;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="610" y="80" width="90" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="B2U6q-5QIGLSwIAsgYjk-4" value="startet Quiz" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="B2U6q-5QIGLSwIAsgYjk-3" target="nRxhFtLmPuZJ_PnHPkGs-1">
+        <mxCell id="B2U6q-5QIGLSwIAsgYjk-4" value="startet Quiz" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;" edge="1" parent="1" source="B2U6q-5QIGLSwIAsgYjk-3" target="nRxhFtLmPuZJ_PnHPkGs-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="B2U6q-5QIGLSwIAsgYjk-3" value="Benutzer" style="shape=actor;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;fillColor=#000033;" vertex="1" parent="1">
+        <mxCell id="B2U6q-5QIGLSwIAsgYjk-3" value="Benutzer" style="shape=actor;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;fillColor=#7EA6E0;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="180" y="70" width="50" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="B2U6q-5QIGLSwIAsgYjk-10" value="&lt;div&gt;ermöglicht die Abfrage, Darstellung&lt;/div&gt;&lt;div&gt;und Zwischenspreicherung von&lt;/div&gt;&lt;div&gt;Quizfragen mit den zugehörigen&lt;/div&gt;&lt;div&gt;Antworten &lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="B2U6q-5QIGLSwIAsgYjk-10" value="&lt;div&gt;ermöglicht die Abfrage, Darstellung&lt;/div&gt;&lt;div&gt;und Zwischenspreicherung von&lt;/div&gt;&lt;div&gt;Quizfragen mit den zugehörigen&lt;/div&gt;&lt;div&gt;Antworten &lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="309" y="140" width="210" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="B2U6q-5QIGLSwIAsgYjk-11" value="&lt;div&gt;stellt die Quizdaten&lt;/div&gt;&lt;div&gt;zur Verfügung&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="B2U6q-5QIGLSwIAsgYjk-11" value="&lt;div&gt;stellt die Quizdaten&lt;/div&gt;&lt;div&gt;zur Verfügung&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
           <mxGeometry x="595" y="130" width="120" height="40" as="geometry" />
         </mxCell>
       </root>
