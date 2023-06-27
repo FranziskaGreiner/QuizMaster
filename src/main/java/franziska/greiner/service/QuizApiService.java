@@ -92,6 +92,9 @@ public class QuizApiService {
             e.printStackTrace();
         }
 
+        // Delete all questions before saving new ones
+        questionRepository.deleteAll();
+
         if(questionList != null){
             for (Question question : questionList) {
                 List<Answer> answerList = question.getAnswers();
