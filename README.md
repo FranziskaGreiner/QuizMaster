@@ -31,6 +31,7 @@ Die Anwendung wird demnach als Microservice Anwendung mit folgenden Bestandteile
 # 3. Umfang und Kontext des Systems
 ![SystemContext](diagrams/SystemContextDiagram.drawio.png)
 ![Container](diagrams/ContainerDiagram.drawio.png)
+![Component](diagrams/ComponentDiagram.drawio.png)
 
 ## Business Context
 
