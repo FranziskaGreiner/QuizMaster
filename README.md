@@ -1,6 +1,10 @@
 # QuizMaster
 
-# 
+**Inhaltsverzeichnis**
+1. [Einführung und Ziele](#1-einführung-und-ziele)
+2. [Architecture Constraints](#2-architecture-constraints)
+3. [Umfang und Kontext des Systems](#3-umfang-und-kontext-des-systems)
+4. [Lösungsstrategie](#4-lösungsstrategie)
 
 # 1. Einführung und Ziele
 
@@ -10,16 +14,11 @@ Er kann sich für eine Antwort entscheiden und sieht dann, ob diese der richtige
 Die Anwendung bietet außerdem die Möglichkeit, Fragen je nach Kategorie oder Schwierigkeitsgrad zu filtern.
 
 ## Qualitätsziele
-Siehe 
+Siehe [Kapitel 10](#kapitel-10-qualität) für eine ausführliche Auflistung der Qualitätsziele.
 
-## Stakeholders
+## Stakeholder
 Das Projekt wird im Rahmen einer Studienarbeit an der Technischen Hochschule Rosenheim umgesetzt.
 Die Stakeholder sind deshalb begrenzt auf den Dozenten und die Studenten des Moduls "Software Qualitätssicherung".
-
-| Role/Name   | Contact        | Expectations       |
-|-------------|----------------|--------------------|
-| *\<Role-1>* | *\<Contact-1>* | *\<Expectation-1>* |
-| *\<Role-2>* | *\<Contact-2>* | *\<Expectation-2>* |
 
 # 2. Architecture Constraints
 Die Grundstruktur der Anwendung ist durch die Vorgaben des Dozenten festgelegt.
@@ -30,6 +29,7 @@ Die Anwendung wird demnach als Microservice Anwendung mit folgenden Bestandteile
 - Externe REST-API
 
 # 3. Umfang und Kontext des Systems
+![SystemContext](diagrams/SystemContextDiagram.drawio.png)
 
 ## Business Context
 
@@ -53,7 +53,30 @@ Die Anwendung wird mit folgendem Technologiestack umgesetzt:
 - Frontend: Angular
 - Backend: Java
 - Datenbank: PostgreSQL
-- Externe API (https://quizapi.io/): REST
+- Externe API (https://quizapi.io/): RESTful
+
+Die Entscheidungen für diesen Technolgoiestack wurde aufgrund verschiedener Faktoren getroffen:
+
+**Frontend: Angular**
+- Modularität und Skalierbarkeit: Angular ist ein Framework, das auf Komponenten basiert und so eine klare Trennung von Verantwortlichkeiten in der Anwendung erlaubt. Diese modulare Struktur hilft bei der Organisation des Codes, fördert die Wiederverwendbarkeit von Code und macht das Projekt skalierbar.
+- Community und Support: Angular hat eine große Community und wird von Google unterstützt, was die Lösung von Problemen und die Suche nach Informationen erleichtert.
+
+**Backend: Java**
+- Stabilität und Zuverlässigkeit: Java ist eine bewährte, robuste Sprache, die für ihre Stabilität und Zuverlässigkeit bekannt ist.
+- Spring Framework: Das Spring Framework bietet eine Menge Funktionen, eine schnelle Einrichtung und eine Reihe von "Starter" -Paketen, um schnell eine Anwendung mit verschiedenen Technologien aufzusetzen
+
+**Datenbank: PostgreSQL**
+- Open Source und Kosteneffizienz: PostgreSQL ist eine leistungsfähige, Open-Source-Objekt-relationale Datenbank. Es ist eine kostengünstige Lösung, insbesondere für kleinere Systeme, da es ohne zusätzliche Lizenzkosten eingesetzt werden kann.
+- Leichtgewicht und Einfachheit: PostgreSQL ist relativ einfach einzurichten und zu verwalten, was es ideal für kleinere Systeme macht, die eine zuverlässige, aber unkomplizierte Datenbanklösung benötigen.
+
+**Externe API: RESTful**
+- Die Anbindung an die externe API RESTful umzusetzen war vorgegeben, diese Vorgehensweise ist aufgrund ihrer Einfachheit, Interoperabilität und Zustandslosigkeit weit verbreitet.
+- Reichhaltige Datenquelle: Die Verwendung einer externen API wie quizapi.io ermöglicht den Zugriff auf eine breite Palette von Fragen und Antworten, die ständig aktualisiert und erweitert werden. Dadurch wird die Notwendigkeit, eigene Fragen zu erstellen und zu verwalten, vermieden und gleichzeitig die Vielfalt und Aktualität der in der Anwendung präsentierten Quizfragen sichergestellt.
+- Einfache Integration: Quizapi.io bietet eine gut dokumentierte und einfach zu verwendende API. Dadurch wird der Aufwand für die Integration und Verwaltung der Datenkommunikation erheblich reduziert.
+- Skalierbarkeit: Da die Datenverarbeitung auf der Seite von quizapi.io stattfindet, reduziert dies den Datenverarbeitungsbedarf auf Seiten der Anwendung und ermöglicht eine höhere Skalierbarkeit.
+
+Für die Wahl der Frontend-, Backend- und Datenbank-Technologie war außerdem das Vorwissen der Entwicklerin entscheidend.
+Durch die Nutzung dieser Technologien in vergangenen Projekten, hat sich die Wahl zusätzlich angeboten.
 
 # 5. Building Block View
 
@@ -193,6 +216,29 @@ Mapping of Building Blocks to Infrastructure
 # 9. Architecture Decisions
 
 # 10. Quality Requirements
+
+| Maßnahme            | Erklärung         |
+|---------------------|-------------------|
+| *Unit Tests*        | *\<definition-1>* |
+| *Integration Tests* | *\<definition-2>* |
+| *E2E Tests*         | *\<definition-2>* |
+| *Last Tests*        | *\<definition-2>* |
+| *Coverage Vorgabe*  | *\<definition-2>* |
+
+Unit Tests:
+- Frontend: Jest
+- Backend: JUnite, Mockito
+
+Integration Tets:
+- Frontend:
+- Backend:
+
+E2E Tests: Cypress
+
+Statische Code Analyse:
+SonarCloud
+
+Last Tests:
 
 ## Quality Tree
 
