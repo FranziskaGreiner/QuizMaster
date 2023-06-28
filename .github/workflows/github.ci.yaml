@@ -89,4 +89,5 @@ jobs:
           start: 'npm start'
           wait-on: 'http://localhost:4200'
           wait-on-timeout: 120
-          working-directory: frontend/quizmaster-frontend
+          config-file: cypress.config.js
+          working-directory: ./frontend/quizmaster-frontend
