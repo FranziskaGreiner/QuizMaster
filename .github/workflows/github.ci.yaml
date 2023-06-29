@@ -65,11 +65,11 @@ jobs:
         ports:
           - '5432:5432'
         env:
-          - POSTGRESQL_USERNAME: quizmaster
-          - POSTGRESQL_PASSWORD: LW3iDyg8V3skEYWk
-          - POSTGRESQL_DATABASE: quizmaster
-          - POSTGRESQL_TIMEZONE: Europe/Berlin
-          - POSTGRESQL_LOG_TIMEZONE: Europe/Berlin
+          POSTGRESQL_USERNAME: quizmaster
+          POSTGRESQL_PASSWORD: LW3iDyg8V3skEYWk
+          POSTGRESQL_DATABASE: quizmaster
+          POSTGRESQL_TIMEZONE: Europe/Berlin
+          POSTGRESQL_LOG_TIMEZONE: Europe/Berlin
         options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=5
     steps:
       - name: Checkout
