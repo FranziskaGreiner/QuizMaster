@@ -29,23 +29,29 @@ Die Anwendung wird demnach als Microservice Anwendung mit folgenden Bestandteile
 - Externe REST-API
 
 # 3. Umfang und Kontext des Systems
+Um Umfang und Kontext des Systems zu veranschaulichen, wird dem C4 Modell für die Sotwareentwicklung gefolgt.
+
+## System Context Diagram
+
+Das System Context Diagramm gibt einen Gesamtüberblick über das System und ordnet es in den Kontext und den Anwendungsbereich, in dem aus auftritt, ein.
+Hier geht es noch nicht um Details oder verwendete Technologie, sondern mehr darum, das Große und Ganze zu sehen.
+
 ![SystemContext](diagrams/SystemContextDiagram.drawio.png)
+
+## Container Diagram
+
+Im Container Diagram wird genauer auf das System und seine Bestandteile eingegangen.
+Die verschiedenen Container, als separat lauffähige Einheiten sind für dieses Projekt das Angular Frontend, das Java Backend und die PostreSQL Datenbank. 
+Es wird gezeigt, wie die einzelnen Container miteinander kommunizieren und welche Aufgaben sie haben.
+
 ![Container](diagrams/ContainerDiagram.drawio.png)
+
+## Component Diagram
+
+Das Komponenten Diagram gibt einen detaillierteren Überblick über die einzelnen Komponenten der Container und zeigt seinen Aufbau.
+Da der Umfang des Projekts sehr klein ist, wurde hier lediglich das Backend als Hauptkomponente zur genaueren Betrachtung gewählt.
+
 ![Component](diagrams/ComponentDiagram.drawio.png)
-
-## Business Context
-
-**\<Diagram or Table>**
-
-**\<optionally: Explanation of external domain interfaces>**
-
-## Technical Context
-
-**\<Diagram or Table>**
-
-**\<optionally: Explanation of technical interfaces>**
-
-**\<Mapping Input/Output to Channels>**
 
 # 4. Lösungsstrategie
 ## Technische Entscheidungen
