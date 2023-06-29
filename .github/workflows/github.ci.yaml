@@ -59,6 +59,18 @@ jobs:
 
   cypress-e2e:
     runs-on: ubuntu-22.04
+    services:
+      postgres:
+        image: 'docker.io/bitnami/postgresql:15.3.0'
+        ports:
+          - '5432:5432'
+        environment:
+          - POSTGRESQL_USERNAME=quizmaster
+          - POSTGRESQL_PASSWORD=LW3iDyg8V3skEYWk
+          - POSTGRESQL_DATABASE=quizmaster
+          - POSTGRESQL_TIMEZONE=Europe/Berlin
+          - POSTGRESQL_LOG_TIMEZONE=Europe/Berlin
+        options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=5
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -75,6 +87,9 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+
+      - name: Start Database
+        run: docker-compose up -d
 
       - name: Start Backend
         run: |
