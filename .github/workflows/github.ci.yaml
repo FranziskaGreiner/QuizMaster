@@ -96,6 +96,10 @@ jobs:
         working-directory: ./
         env:
           QUIZ_API_KEY: 78Kd7bqZLyRKpUbVoxSSnSzmzq2lM6IrGTTaXACW
+        timeout-minutes: 2
+
+      - name: Ping Backend
+        run: curl --fail --silent http://localhost:8080
 
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
