@@ -64,7 +64,7 @@ jobs:
         image: 'docker.io/bitnami/postgresql:15.3.0'
         ports:
           - '5432:5432'
-        environment:
+        env:
           - POSTGRESQL_USERNAME=quizmaster
           - POSTGRESQL_PASSWORD=LW3iDyg8V3skEYWk
           - POSTGRESQL_DATABASE=quizmaster
