@@ -94,6 +94,8 @@ jobs:
           while ! nc -z localhost 8080; do sleep 1; done
           echo "Backend started"
         working-directory: ./
+        env:
+          QUIZ_API_KEY: 78Kd7bqZLyRKpUbVoxSSnSzmzq2lM6IrGTTaXACW
 
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
