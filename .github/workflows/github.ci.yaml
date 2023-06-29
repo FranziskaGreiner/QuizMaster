@@ -88,9 +88,6 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      - name: Start Database
-        run: docker-compose up -d
-
       - name: Start Backend
         run: |
           mvn spring-boot:run &
