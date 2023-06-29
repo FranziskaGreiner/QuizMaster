@@ -77,7 +77,11 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Start Backend
-        run: mvn spring-boot:run &
+        run: |
+          mvn spring-boot:run &
+          echo "Waiting for backend to start"
+          while ! nc -z localhost 8080; do sleep 1; done
+          echo "Backend started"
         working-directory: ./
 
       # Install NPM dependencies, cache them correctly
