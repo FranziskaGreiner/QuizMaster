@@ -35,8 +35,10 @@ public class QuizApiService {
     @Autowired
     private AnswerRepository answerRepository;
 
-    public QuizApiService(WebClient webClient) {
+    public QuizApiService(WebClient webClient, QuestionRepository questionRepository, AnswerRepository answerRepository) {
         this.webClient = webClient;
+        this.questionRepository = questionRepository;
+        this.answerRepository = answerRepository;
     }
 
     public List<Question> fetchQuestions() {

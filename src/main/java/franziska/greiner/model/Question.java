@@ -2,7 +2,7 @@ package franziska.greiner.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import franziska.greiner.util.AnswersDeserializer;
+import franziska.greiner.util.AnswerDeserializer;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -49,7 +49,7 @@ public class Question {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     @JsonManagedReference
-    @JsonDeserialize(using = AnswersDeserializer.class)
+    @JsonDeserialize(using = AnswerDeserializer.class)
     private List<Answer> answers;
 
     public Question() {

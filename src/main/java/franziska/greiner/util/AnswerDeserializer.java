@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class AnswersDeserializer extends JsonDeserializer<List<Answer>> {
+public class AnswerDeserializer extends JsonDeserializer<List<Answer>> {
     @Override
     public List<Answer> deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
         List<Answer> answers = new ArrayList<>();

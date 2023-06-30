@@ -21,13 +21,10 @@ public class QuizControllerTest {
 
     @Test
     public void storeQuestions_shouldReturnOkStatus() {
-        // Arrange
         doNothing().when(quizApiService).storeQuestions();
 
-        // Act
         ResponseEntity<Void> response = quizController.storeQuestions();
 
-        // Assert
         verify(quizApiService, times(1)).storeQuestions();
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
