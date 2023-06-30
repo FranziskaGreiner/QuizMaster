@@ -10,6 +10,7 @@ describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let questionService: QuestionService;
+  let appTitle: String = 'Welcome to QuizMaster';
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -47,7 +48,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('quizmaster-frontend app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain(appTitle);
   });
 
   it('getQuestions() should update questions array', () => {
