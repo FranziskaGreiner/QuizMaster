@@ -1,10 +1,10 @@
 package franziska.greiner.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 

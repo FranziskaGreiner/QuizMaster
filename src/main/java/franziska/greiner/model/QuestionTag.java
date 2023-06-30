@@ -1,8 +1,7 @@
 package franziska.greiner.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
-
-import javax.persistence.*;
 
 @Data
 @Entity
