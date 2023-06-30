@@ -10,13 +10,13 @@ import franziska.greiner.model.Question;
 import franziska.greiner.repository.AnswerRepository;
 import franziska.greiner.repository.QuestionRepository;
 import franziska.greiner.util.QuestionDeserializer;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpMethod;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,16 +24,12 @@ import java.util.List;
 @Service
 @EnableScheduling
 public class QuizApiService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(QuizApiService.class);
     private static final int LIMIT = 10;
 
-    @Autowired
     private final WebClient webClient;
-
-    @Autowired
-    private QuestionRepository questionRepository;
-
-    @Autowired
-    private AnswerRepository answerRepository;
+    private final QuestionRepository questionRepository;
+    private final AnswerRepository answerRepository;
 
     public QuizApiService(WebClient webClient, QuestionRepository questionRepository, AnswerRepository answerRepository) {
         this.webClient = webClient;
@@ -42,57 +38,14 @@ public class QuizApiService {
     }
 
     public List<Question> fetchQuestions() {
-        WebClient.UriSpec<WebClient.RequestBodySpec> uriSpec = webClient.method(HttpMethod.GET);
-        WebClient.RequestBodySpec bodySpec = uriSpec.uri(uriBuilder -> uriBuilder
-                .path("/questions")
-                .queryParam("limit", LIMIT)
-                .build());
-        // Fetch as a String because WebClient does not directly support custom deserializers
-        Mono<String> responseMono = bodySpec.retrieve().bodyToMono(String.class);
-
-        // Convert String response to Question using ObjectMapper with custom deserializer
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        SimpleModule module = new SimpleModule();
-        module.addDeserializer(Question.class, new QuestionDeserializer());
-        objectMapper.registerModule(module);
-
-        String response = responseMono.block();
-        List<Question> questionList = null;
-        try {
-            questionList = objectMapper.readValue(response, new TypeReference<List<Question>>(){});
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-
-        return questionList;
+        String response = getApiResponse();
+        return deserializeResponse(response);
     }
 
     @Scheduled(cron = "0 0 * * * *")
     public void storeQuestions() {
-        WebClient.UriSpec<WebClient.RequestBodySpec> uriSpec = webClient.method(HttpMethod.GET);
-        WebClient.RequestBodySpec bodySpec = uriSpec.uri(uriBuilder -> uriBuilder
-                .path("/questions")
-                .queryParam("limit", LIMIT)
-                .build());
-
-        // Fetch as a String because WebClient does not directly support custom deserializers
-        Mono<String> responseMono = bodySpec.retrieve().bodyToMono(String.class).log();
-
-        // Convert String response to ApiResponse using ObjectMapper and then to Question using the custom deserializer
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        SimpleModule module = new SimpleModule();
-        module.addDeserializer(Question.class, new QuestionDeserializer());
-        objectMapper.registerModule(module);
-
-        String response = responseMono.block();
-        List<Question> questionList = null;
-        try {
-            questionList = objectMapper.readValue(response, new TypeReference<List<Question>>(){});
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+        String response = getApiResponse();
+        List<Question> questionList = deserializeResponse(response);
 
         // Delete all questions before saving new ones
         questionRepository.deleteAll();
@@ -107,6 +60,33 @@ public class QuizApiService {
                 }
                 answerRepository.saveAll(answerList);
             }
+        }
+    }
+
+    private String getApiResponse() {
+        WebClient.UriSpec<WebClient.RequestBodySpec> uriSpec = webClient.method(HttpMethod.GET);
+        WebClient.RequestBodySpec bodySpec = uriSpec.uri(uriBuilder -> uriBuilder
+                .path("/questions")
+                .queryParam("limit", LIMIT)
+                .build());
+
+        // Fetch as a String because WebClient does not directly support custom deserializers
+        return bodySpec.retrieve().bodyToMono(String.class).block();
+    }
+
+    private List<Question> deserializeResponse(String response) {
+        // Convert String response to Question using ObjectMapper with custom deserializer
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        SimpleModule module = new SimpleModule();
+        module.addDeserializer(Question.class, new QuestionDeserializer());
+        objectMapper.registerModule(module);
+
+        try {
+            return objectMapper.readValue(response, new TypeReference<List<Question>>(){});
+        } catch (JsonProcessingException e) {
+            LOGGER.error("Error during deserialization of response", e);
+            return null;
         }
     }
 }
