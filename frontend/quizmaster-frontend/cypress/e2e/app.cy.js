@@ -1,6 +1,6 @@
 describe('Quiz App', () => {
   it('successfully loads and displays questions', () => {
-    cy.visit('http://localhost:4200') // change to app's url
+    cy.visit('http://localhost:4200')
 
     cy.contains('Start quiz').click()
 
