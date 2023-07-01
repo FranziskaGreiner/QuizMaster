@@ -57,7 +57,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify jacoco:report org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=FranziskaGreiner_QuizMaster
 
-  cypress-e2e:
+  e2e-and-performance-tests:
     runs-on: ubuntu-22.04
     services:
       postgres:
@@ -111,7 +111,12 @@ jobs:
         working-directory: ./frontend/quizmaster-frontend
         timeout-minutes: 2
 
-      - name: Cypress run
+      - name: Run cypress e2e test
         run: |
           cd ./frontend/quizmaster-frontend
           npx cypress run
+
+      - name: Run k6 load test
+        run: |
+          cd ./src/test/performance
+          k6 run load-test.js
