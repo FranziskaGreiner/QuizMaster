@@ -1,68 +1,93 @@
-<mxfile host="app.diagrams.net" modified="2023-06-27T11:33:45.690Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0" etag="7JIAeJczSccwGOkuUQ1v" version="21.5.0" type="github">
+<mxfile host="app.diagrams.net" modified="2023-07-01T10:29:16.976Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0" etag="TNWdsEFEXsRWZCpNSk-F" version="21.5.1" type="github">
   <diagram name="Seite-1" id="0H7Wv0I9xIKGGqjf-HuO">
-    <mxGraphModel dx="1562" dy="826" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="875" dy="448" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;strokeColor=#000000;" edge="1" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-4" target="5vWt6P3W-9Mnp_LDG-WE-5">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-4" value="Component: QuizMaster Backend" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=none;strokeColor=#F19C99;dashed=1;strokeWidth=3;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" parent="1" vertex="1">
+          <mxGeometry x="202" y="70" width="430" height="360" as="geometry" />
         </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-2" value="&lt;div&gt;API-Anfragen&lt;/div&gt;&lt;div&gt;[JSON/HTTPS]&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];fontColor=#000000;labelPosition=center;verticalLabelPosition=top;" vertex="1" connectable="0" parent="5vWt6P3W-9Mnp_LDG-WE-1">
-          <mxGeometry x="-0.1912" y="-4" relative="1" as="geometry">
-            <mxPoint x="11" y="-4" as="offset" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-4" target="5vWt6P3W-9Mnp_LDG-WE-19">
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;strokeColor=#000000;dashed=1;" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-20" target="5vWt6P3W-9Mnp_LDG-WE-5" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="200" y="250" />
-              <mxPoint x="200" y="190" />
+              <mxPoint x="610" y="190" />
+              <mxPoint x="610" y="250" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-4" value="QuizMaster Backend" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=none;strokeColor=#F19C99;dashed=1;strokeWidth=3;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" vertex="1" parent="1">
-          <mxGeometry x="180" y="60" width="450" height="380" as="geometry" />
-        </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-5" value="QuizAPI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="730" y="230" width="90" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-8" value="&lt;div&gt;Stellt die Quizdaten&lt;/div&gt;&lt;div&gt;zur Verfügung&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="707" y="280" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-9" value="&lt;div&gt;Datenbank&lt;/div&gt;&lt;div&gt;[PostgreSQL]&lt;br&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#F8CECC;" vertex="1" parent="1">
-          <mxGeometry x="467" y="470" width="90" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-11" target="5vWt6P3W-9Mnp_LDG-WE-4">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-11" value="&lt;div&gt;Frontend&lt;/div&gt;&lt;div&gt;[Typescript, Angular]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8CECC;" vertex="1" parent="1">
-          <mxGeometry x="10" y="220" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-12" value="Lese- und Schreibzugriff [SQL]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-14" target="5vWt6P3W-9Mnp_LDG-WE-9">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="500" y="440" as="sourcePoint" />
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-2" value="&lt;div&gt;holt sich die&lt;/div&gt;&lt;div&gt;Quizdaten&lt;br&gt;&lt;/div&gt;&lt;div&gt;[JSON/HTTPS]&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];fontColor=#000000;labelPosition=center;verticalLabelPosition=top;" parent="5vWt6P3W-9Mnp_LDG-WE-1" vertex="1" connectable="0">
+          <mxGeometry x="-0.1912" y="-4" relative="1" as="geometry">
+            <mxPoint x="65" y="-4" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-20" target="5vWt6P3W-9Mnp_LDG-WE-4">
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-5" value="QuizAPI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="731" y="230" width="79" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-8" value="&lt;div&gt;Bereitsellung der&lt;/div&gt;&lt;div&gt;Quizdaten&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="715.5" y="280" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-9" value="&lt;div&gt;Datenbank&lt;/div&gt;&lt;div&gt;[PostgreSQL]&lt;br&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#F8CECC;" parent="1" vertex="1">
+          <mxGeometry x="479" y="497" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-18" value="&lt;div&gt;fragt die&lt;br&gt;&lt;/div&gt;&lt;div&gt;Quizdaten an&lt;/div&gt;&lt;div&gt;[JSON/HTTPS]&lt;br&gt;&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-11" target="5vWt6P3W-9Mnp_LDG-WE-19" edge="1">
+          <mxGeometry x="-0.4688" y="30" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="220" y="250" />
+              <mxPoint x="220" y="190" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-11" value="&lt;div&gt;Frontend&lt;/div&gt;&lt;div&gt;[Typescript, Angular]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8CECC;" parent="1" vertex="1">
+          <mxGeometry x="6" y="220" width="94" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-12" value="&lt;div&gt;Lese- und Schreibzugriff&lt;/div&gt;&lt;div&gt;[SQL]&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;dashed=1;" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-14" target="5vWt6P3W-9Mnp_LDG-WE-9" edge="1">
+          <mxGeometry x="0.3362" relative="1" as="geometry">
+            <mxPoint x="512" y="440" as="sourcePoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cj198h5CY_b3qoeGNtwP-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-14" target="cj198h5CY_b3qoeGNtwP-4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-14" value="&lt;div&gt;&lt;b&gt;Repository&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Java, Spring MVC]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="440" y="310" width="144" height="79.5" as="geometry" />
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-14" value="&lt;div&gt;&lt;b&gt;Repository&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Java, Spring MVC]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="452" y="294" width="144" height="79.5" as="geometry" />
         </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-16" value="&lt;div&gt;Abfrage, Datenverarbeitung und&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kommunikation mit externer API&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="404" y="70.5" width="190" height="40" as="geometry" />
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-16" value="&lt;div&gt;Abfrage, Datenverarbeitung und&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kommunikation mit externer API&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="429" y="100.5" width="190" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-19" target="5vWt6P3W-9Mnp_LDG-WE-20">
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-19" target="5vWt6P3W-9Mnp_LDG-WE-20" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-19" value="&lt;div&gt;&lt;b&gt;Controller&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Java, Spring MVC]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="220" y="150.5" width="144" height="79.5" as="geometry" />
-        </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-22" value="Datenbank Operationen" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-20" target="5vWt6P3W-9Mnp_LDG-WE-14">
+        <mxCell id="cj198h5CY_b3qoeGNtwP-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-19" target="cj198h5CY_b3qoeGNtwP-4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-20" value="&lt;div&gt;&lt;b&gt;Service&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Java, Spring MVC]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
-          <mxGeometry x="440" y="150.5" width="144" height="79.5" as="geometry" />
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-19" value="&lt;div&gt;&lt;b&gt;Controller&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Java, Spring MVC]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="232" y="150.5" width="144" height="79.5" as="geometry" />
+        </mxCell>
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-20" target="5vWt6P3W-9Mnp_LDG-WE-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cj198h5CY_b3qoeGNtwP-7" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="5vWt6P3W-9Mnp_LDG-WE-20" target="cj198h5CY_b3qoeGNtwP-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5vWt6P3W-9Mnp_LDG-WE-20" value="&lt;div&gt;&lt;b&gt;Service&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Java, Spring MVC]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="452" y="150.5" width="144" height="79.5" as="geometry" />
+        </mxCell>
+        <mxCell id="cj198h5CY_b3qoeGNtwP-1" value="&lt;div&gt;Bereitstellung der Endpunkte&lt;/div&gt;&lt;div&gt;für Abrufen und Speichern&lt;/div&gt;&lt;div&gt;der Quizdaten&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="214" y="90.5" width="180" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cj198h5CY_b3qoeGNtwP-2" value="&lt;div&gt;Speichern der Quizfragen mit&lt;/div&gt;&lt;div&gt;den zugehörigen Antworten&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="290" y="522" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cj198h5CY_b3qoeGNtwP-3" value="&lt;div&gt;Datenbank&lt;/div&gt;&lt;div&gt;Operationen&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="524" y="373.5" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cj198h5CY_b3qoeGNtwP-4" value="&lt;div&gt;&lt;b&gt;Model&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Java, Spring MVC]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="232" y="294" width="144" height="79.5" as="geometry" />
+        </mxCell>
+        <mxCell id="cj198h5CY_b3qoeGNtwP-9" value="&lt;div&gt;Definition der&lt;/div&gt;&lt;div&gt;Datenobjekte&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="259" y="373.5" width="90" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
