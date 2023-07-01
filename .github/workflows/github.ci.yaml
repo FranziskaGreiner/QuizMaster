@@ -77,8 +77,6 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         with:
           projectBaseDir: frontend/quizmaster-frontend
-          sonar.projectKey: FranziskaGreiner_QuizMaster
-          sonar.organization: QuizMaster
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
