@@ -24,14 +24,6 @@
         <spring-boot-maven-plugin-version>3.1.1</spring-boot-maven-plugin-version>
         <sonar.organization>franziskagreiner</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <!-- Backend module properties -->
-        <backend.sonar.sources>src/main</backend.sonar.sources>
-        <backend.sonar.tests>src/test</backend.sonar.tests>
-        <!-- Frontend module properties -->
-        <frontend.sonar.sources>frontend/src</frontend.sonar.sources>
-        <frontend.sonar.test.inclusions>**/*spec.ts</frontend.sonar.test.inclusions>
-        <frontend.sonar.sources.inclusions>**/*.ts</frontend.sonar.sources.inclusions>
-        <frontend.sonar.sources.exclusions>**/*spec.ts</frontend.sonar.sources.exclusions>
     </properties>
 
     <dependencies>
