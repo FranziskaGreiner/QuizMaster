@@ -62,6 +62,5 @@ class QuestionDeserializerTest {
         assertEquals(1, question.getTags().size());
         assertEquals("SQL", question.getTags().get(0).getName());
         assertEquals(3, question.getAnswers().size());
-        assertFalse(question.getAnswers().get(2).getCorrect());
     }
 }

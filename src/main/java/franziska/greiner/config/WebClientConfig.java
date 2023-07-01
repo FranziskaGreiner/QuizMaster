@@ -10,8 +10,14 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientConfig {
 
+    private final WebClientConfigProperties webClientConfigProperties;
+    private final WebClient.Builder webClientBuilder;
+
     @Autowired
-    private WebClientConfigProperties webClientConfigProperties;
+    public WebClientConfig(WebClientConfigProperties webClientConfigProperties, WebClient.Builder webClientBuilder) {
+        this.webClientConfigProperties = webClientConfigProperties;
+        this.webClientBuilder = webClientBuilder;
+    }
 
     @Bean
     public WebClient webClient() {
@@ -19,7 +25,7 @@ public class WebClientConfig {
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
         headers.add("X-Api-Key", webClientConfigProperties.getQuizApiKey());
 
-        return WebClient.builder()
+        return webClientBuilder
                 .baseUrl(webClientConfigProperties.getQuizApiBaseUrl())
                 .defaultHeaders(httpHeaders -> httpHeaders.addAll(headers))
                 .build();
