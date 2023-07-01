@@ -1,66 +1,68 @@
-<mxfile host="app.diagrams.net" modified="2023-06-28T06:24:23.041Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0" etag="Kz0XMwcvB-VSzRT0nIS-" version="21.5.0" type="github">
+<mxfile host="app.diagrams.net" modified="2023-07-01T10:30:01.157Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0" etag="MWpUBwAG4-it6B9krJMi" version="21.5.1" type="github">
   <diagram name="Seite-1" id="69PsMNQu_l0AuLWpFCS4">
-    <mxGraphModel dx="1050" dy="496" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="875" dy="448" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="QBw431B6-FSh1K3QTOBE-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;strokeColor=#000000;" edge="1" parent="1" source="QBw431B6-FSh1K3QTOBE-3" target="QBw431B6-FSh1K3QTOBE-4">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="QBw431B6-FSh1K3QTOBE-3" value="Container: QuizMaster" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=none;strokeColor=#F19C99;dashed=1;strokeWidth=3;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" parent="1" vertex="1">
+          <mxGeometry x="150" y="60" width="480" height="380" as="geometry" />
         </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-2" value="&lt;div&gt;API-Anfragen&lt;/div&gt;&lt;div&gt;[JSON/HTTPS]&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];fontColor=#000000;labelPosition=center;verticalLabelPosition=top;" vertex="1" connectable="0" parent="QBw431B6-FSh1K3QTOBE-1">
-          <mxGeometry x="-0.1912" y="-4" relative="1" as="geometry">
-            <mxPoint x="11" y="-4" as="offset" />
+        <mxCell id="QBw431B6-FSh1K3QTOBE-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;strokeColor=#000000;dashed=1;" parent="1" source="QBw431B6-FSh1K3QTOBE-12" target="QBw431B6-FSh1K3QTOBE-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="173" />
+              <mxPoint x="610" y="250" />
+            </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="QBw431B6-FSh1K3QTOBE-3" target="QBw431B6-FSh1K3QTOBE-11">
-          <mxGeometry relative="1" as="geometry">
+        <mxCell id="QBw431B6-FSh1K3QTOBE-2" value="&lt;div&gt;holt sich die&lt;/div&gt;&lt;div&gt;Quizdaten&lt;br&gt;&lt;/div&gt;&lt;div&gt;[JSON/HTTPS]&lt;br&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=bottom;resizable=0;points=[];fontColor=#000000;labelPosition=center;verticalLabelPosition=top;" parent="QBw431B6-FSh1K3QTOBE-1" vertex="1" connectable="0">
+          <mxGeometry x="-0.1912" y="-4" relative="1" as="geometry">
+            <mxPoint x="74" y="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QBw431B6-FSh1K3QTOBE-4" value="QuizAPI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="730" y="230" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="QBw431B6-FSh1K3QTOBE-5" value="&lt;div&gt;ruft die&lt;/div&gt;&lt;div&gt;Anwendung auf&lt;/div&gt;&lt;div&gt;[HTTPS]&lt;br&gt;&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;strokeColor=#000000;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;dashed=1;" parent="1" source="QBw431B6-FSh1K3QTOBE-6" target="QBw431B6-FSh1K3QTOBE-11" edge="1">
+          <mxGeometry x="-0.5755" relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="170" y="250" />
               <mxPoint x="170" y="173" />
             </Array>
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-3" value="QuizMaster" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fillColor=none;strokeColor=#F19C99;dashed=1;strokeWidth=3;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" vertex="1" parent="1">
-          <mxGeometry x="150" y="60" width="480" height="380" as="geometry" />
-        </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-4" value="QuizAPI" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="730" y="230" width="90" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-5" value="startet Quiz" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.9;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontColor=#000000;strokeColor=#000000;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" edge="1" parent="1" source="QBw431B6-FSh1K3QTOBE-6" target="QBw431B6-FSh1K3QTOBE-3">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-6" value="Benutzer" style="shape=actor;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;fillColor=#fff2cc;strokeColor=#000000;" vertex="1" parent="1">
+        <mxCell id="QBw431B6-FSh1K3QTOBE-6" value="Benutzer" style="shape=actor;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;fillColor=#fff2cc;strokeColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="10" y="220" width="50" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-8" value="&lt;div&gt;Stellt die Quizdaten&lt;/div&gt;&lt;div&gt;zur Verfügung&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
+        <mxCell id="QBw431B6-FSh1K3QTOBE-8" value="&lt;div&gt;Stellt die Quizdaten&lt;/div&gt;&lt;div&gt;zur Verfügung&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="707" y="280" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-9" value="&lt;div&gt;&lt;b&gt;Datenbank&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[PostgreSQL]&lt;br&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#F8CECC;" vertex="1" parent="1">
+        <mxCell id="QBw431B6-FSh1K3QTOBE-9" value="&lt;div&gt;&lt;b&gt;Datenbank&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[PostgreSQL]&lt;br&gt;&lt;/div&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#F8CECC;" parent="1" vertex="1">
           <mxGeometry x="454" y="300" width="90" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="QBw431B6-FSh1K3QTOBE-11" target="QBw431B6-FSh1K3QTOBE-12">
+        <mxCell id="QBw431B6-FSh1K3QTOBE-16" value="&lt;div&gt;fragt die&lt;/div&gt;&lt;div&gt;Quizdaten an&lt;/div&gt;&lt;div&gt;[JSON/HTTPS]&lt;br&gt;&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" parent="1" source="QBw431B6-FSh1K3QTOBE-11" target="QBw431B6-FSh1K3QTOBE-12" edge="1">
+          <mxGeometry x="-0.0476" y="23" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QBw431B6-FSh1K3QTOBE-11" value="&lt;div&gt;&lt;b&gt;Frontend&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Typescript, Angular]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8CECC;" parent="1" vertex="1">
+          <mxGeometry x="187" y="138" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="QBw431B6-FSh1K3QTOBE-15" value="&lt;div&gt;Lese- und Schreibzugriff&lt;/div&gt;&lt;div&gt;[SQL]&lt;/div&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" parent="1" source="QBw431B6-FSh1K3QTOBE-12" target="QBw431B6-FSh1K3QTOBE-9" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-11" value="&lt;div&gt;&lt;b&gt;Frontend&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Typescript, Angular]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8CECC;" vertex="1" parent="1">
-          <mxGeometry x="190" y="138" width="140" height="70" as="geometry" />
-        </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-15" value="Lese- und Schreibzugriff [SQL]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="QBw431B6-FSh1K3QTOBE-12" target="QBw431B6-FSh1K3QTOBE-9">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="QBw431B6-FSh1K3QTOBE-12" target="QBw431B6-FSh1K3QTOBE-3">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-12" value="&lt;div&gt;&lt;b&gt;Backend&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Java, Spring MVC]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8CECC;" vertex="1" parent="1">
+        <mxCell id="QBw431B6-FSh1K3QTOBE-12" value="&lt;div&gt;&lt;b&gt;Backend&lt;/b&gt;&lt;/div&gt;&lt;div&gt;[Java, Spring MVC]&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8CECC;" parent="1" vertex="1">
           <mxGeometry x="414" y="120.5" width="170" height="105" as="geometry" />
         </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-13" value="&lt;div&gt;Speichert die Quizfragen mit&lt;/div&gt;&lt;div&gt;den zugehörigen Antworten&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="414" y="390" width="170" height="40" as="geometry" />
+        <mxCell id="QBw431B6-FSh1K3QTOBE-13" value="&lt;div&gt;Speichern der Quizfragen mit&lt;/div&gt;&lt;div&gt;den zugehörigen Antworten&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="409" y="390" width="180" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-19" value="&lt;div&gt;Abfrage, Datenverarbeitung und&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kommunikation mit externer API&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
+        <mxCell id="QBw431B6-FSh1K3QTOBE-19" value="&lt;div&gt;Abfrage, Datenverarbeitung und&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kommunikation mit externer API&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" parent="1" vertex="1">
           <mxGeometry x="404" y="70.5" width="190" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="QBw431B6-FSh1K3QTOBE-20" value="&lt;div&gt;Darstellung der Quizfragen&lt;/div&gt;&lt;div&gt;mit den zugehörigen&lt;/div&gt;&lt;div&gt;Antworten &lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" vertex="1" parent="1">
-          <mxGeometry x="180" y="70.5" width="160" height="60" as="geometry" />
+        <mxCell id="QBw431B6-FSh1K3QTOBE-20" value="&lt;div&gt;Darstellung der Quizfragen&lt;/div&gt;&lt;div&gt;mit den zugehörigen&lt;/div&gt;&lt;div&gt;Antworten &lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="177" y="70.5" width="160" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
