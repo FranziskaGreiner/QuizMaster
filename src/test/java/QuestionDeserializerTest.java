@@ -13,14 +13,13 @@ import org.mockito.Mockito;
 import java.io.IOException;
 import java.util.Map;
 
-import static org.junit.Assert.assertNull;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class QuestionDeserializerTest {
+
+class QuestionDeserializerTest {
 
     @Test
-    public void deserializeTest() throws IOException {
+    void deserializeTest() throws IOException {
         ApiResponse apiResponse = new ApiResponse();
         apiResponse.setId(123);
         apiResponse.setQuestion("Which of the following SQL statements is correct?");
@@ -29,8 +28,8 @@ public class QuestionDeserializerTest {
         apiResponse.setTip(null);
         apiResponse.setCategory("SQL");
         apiResponse.setDifficulty("Hard");
-        apiResponse.setMultiple_correct_answers("false");
-        apiResponse.setCorrect_answers(Map.of("answer_a_correct", "false", "answer_b_correct", "true", "answer_c_correct", "false"));
+        apiResponse.setMultipleCorrectAnswers("false");
+        apiResponse.setCorrectAnswers(Map.of("answer_a_correct", "false", "answer_b_correct", "true", "answer_c_correct", "false"));
         apiResponse.setAnswers(Map.of("answer_a", "SELECT cname, COUNT(cname) FROM Orders", "answer_b", "SELECT cname, COUNT(cname) FROM Orders GROUP BY cname", "answer_c", "SELECT cname, COUNT(cname) FROM Orders ORDER BY cname"));
 
         JsonNodeFactory factory = JsonNodeFactory.instance;

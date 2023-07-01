@@ -18,7 +18,7 @@ import java.util.Map;
 public class QuestionDeserializer extends JsonDeserializer<Question> {
 
     @Override
-    public Question deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, IOException {
+    public Question deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
         ObjectMapper mapper = (ObjectMapper) jsonParser.getCodec();
         JsonNode node = mapper.readTree(jsonParser);
         ApiResponse apiResponse = jsonParser.readValueAs(ApiResponse.class);
@@ -50,14 +50,14 @@ public class QuestionDeserializer extends JsonDeserializer<Question> {
         for (Map.Entry<String, String> entry : apiResponse.getAnswers().entrySet()) {
             Answer answer = new Answer();
             answer.setAnswer(entry.getValue());
-            answer.setCorrect(Boolean.parseBoolean(apiResponse.getCorrect_answers().get(entry.getKey() + "_correct")));
+            answer.setCorrect(Boolean.parseBoolean(apiResponse.getCorrectAnswers().get(entry.getKey() + "_correct")));
             answer.setQuestion(question);
             answers.add(answer);
         }
         question.setAnswers(answers);
 
         // Convert multiple_correct_answers
-        question.setMultipleCorrectAnswers(Boolean.parseBoolean(apiResponse.getMultiple_correct_answers()));
+        question.setMultipleCorrectAnswers(Boolean.parseBoolean(apiResponse.getMultipleCorrectAnswers()));
 
         return question;
     }

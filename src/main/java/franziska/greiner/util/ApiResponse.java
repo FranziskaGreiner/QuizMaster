@@ -1,5 +1,6 @@
 package franziska.greiner.util;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import franziska.greiner.model.Tag;
 import lombok.Data;
 
@@ -12,8 +13,10 @@ public class ApiResponse {
     private String question;
     private String description;
     private Map<String, String> answers;
-    private String multiple_correct_answers;
-    private Map<String, String> correct_answers;
+    @JsonProperty("multiple_correct_answers")
+    private String multipleCorrectAnswers;
+    @JsonProperty("correct_answers")
+    private Map<String, String> correctAnswers;
     private String explanation;
     private String tip;
     private List<Tag> tags;

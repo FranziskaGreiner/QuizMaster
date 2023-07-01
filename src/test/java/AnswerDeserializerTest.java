@@ -13,10 +13,10 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-public class AnswerDeserializerTest {
+class AnswerDeserializerTest {
 
     @Test
-    public void testDeserialize() throws IOException {
+    void testDeserialize() throws IOException {
         Map<String, String> answersMap = new HashMap<>();
         answersMap.put("1", "Answer 1");
         answersMap.put("2", "Answer 2");

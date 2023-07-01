@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class QuizControllerTest {
+class QuizControllerTest {
     @InjectMocks
     private QuizController quizController;
 
@@ -20,7 +20,7 @@ public class QuizControllerTest {
     private QuizApiService quizApiService;
 
     @Test
-    public void storeQuestions_shouldReturnOkStatus() {
+    void storeQuestions_shouldReturnOkStatus() {
         doNothing().when(quizApiService).storeQuestions();
 
         ResponseEntity<Void> response = quizController.storeQuestions();
