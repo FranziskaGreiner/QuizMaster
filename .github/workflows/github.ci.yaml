@@ -29,9 +29,8 @@ jobs:
           npm ci
           npm run build
 
-  unit-and-integration-test:
+  unit-and-integration-tests:
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - uses: actions/checkout@v3
 
@@ -65,6 +64,34 @@ jobs:
         run: |
           cd frontend/quizmaster-frontend
           npm run coverage
+
+  sonar-frontend-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+
+      # Set up Node.js and install dependencies
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: npm ci
+        working-directory: frontend/quizmaster-frontend
+
+      # Run tests and analyze
+      - name: Run tests
+        run: npm test
+        working-directory: frontend/quizmaster-frontend
+      - name: SonarCloud scan
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: frontend/quizmaster-frontend
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   sonar-backend-analysis:
     runs-on: ubuntu-latest
@@ -101,34 +128,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify jacoco:report org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=FranziskaGreiner_QuizMaster
-
-  sonar-frontend-analysis:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-
-      # Set up Node.js and install dependencies
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Install dependencies
-        run: npm ci
-        working-directory: frontend/quizmaster-frontend
-
-      # Run tests and analyze
-      - name: Run tests
-        run: npm test
-        working-directory: frontend/quizmaster-frontend
-      - name: SonarCloud scan
-        uses: SonarSource/sonarcloud-github-action@master
-        with:
-          projectBaseDir: frontend/quizmaster-frontend
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   e2e-and-performance-tests:
     runs-on: ubuntu-22.04
