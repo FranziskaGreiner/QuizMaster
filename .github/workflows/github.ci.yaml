@@ -205,15 +205,12 @@ jobs:
           cd ./src/test/performance
           k6 run load-test.js
 
-      - name: Print JAVA_HOME
-        run: echo $JAVA_HOME
-
       # Run Dastardly security scan
       - name: Dastardly Scan Action
         env:
           JAVA_HOME: /usr/lib/jvm/adopt-17
           PATH: ${{ env.JAVA_HOME }}/bin:${{ env.PATH }}
-        uses: PortSwigger/dastardly-github-action@v1.0.0
+        uses: PortSwigger/dastardly-github-action@main
         with:
           target-url: 'http://localhost:8080/quiz'
 
