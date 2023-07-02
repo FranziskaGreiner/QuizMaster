@@ -178,20 +178,16 @@ jobs:
           k6 run load-test.js
 
   eslint-frontend-analysis:
+    name: Run ESLint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 12
       - run: npm ci
-      - uses: sibiraj-s/action-eslint@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          eslint-args: '--ignore-path=.gitignore --quiet'
-          extensions: 'js,jsx,ts,tsx'
-          annotations: true
-        working-directory: ./frontend/quizmaster-frontend
+      - uses: eslint/github-action@v0
+      - working-directory: ./frontend/quizmaster-frontend
 
 #      # Run Dastardly security scan
 #      - name: Dastardly Scan Action
