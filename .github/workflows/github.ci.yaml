@@ -180,19 +180,27 @@ jobs:
   eslint-frontend-analysis:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: |
+
+      - name: Install frontend dependencies
+        run: |
           cd frontend/quizmaster-frontend
           npm ci
-      - uses: sibiraj-s/action-eslint@v2
+
+      - name: Run ESLint
+        uses: sibiraj-s/action-eslint@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           eslint-args: '--ignore-path=frontend/quizmaster-frontend/.gitignore --quiet'
           extensions: 'js,jsx,ts,tsx'
           annotations: true
+        working-directory: frontend/quizmaster-frontend
 
 #      # Run Dastardly security scan
 #      - name: Dastardly Scan Action

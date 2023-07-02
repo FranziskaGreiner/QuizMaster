@@ -10,7 +10,7 @@ describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let questionService: QuestionService;
-  const appTitle: string = 'Welcome to QuizMaster';
+  const appTitle = 'Welcome to QuizMaster';
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
