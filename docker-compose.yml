@@ -10,7 +10,7 @@ services:
       - './data:/bitnami/postgresql'
     environment:
       - POSTGRESQL_USERNAME=quizmaster
-      - POSTGRESQL_PASSWORD=LW3iDyg8V3skEYWk
+      - POSTGRESQL_PASSWORD=${DB_PASSWORD}
       - POSTGRESQL_DATABASE=quizmaster
       - POSTGRESQL_TIMEZONE=Europe/Berlin
       - POSTGRESQL_LOG_TIMEZONE=Europe/Berlin

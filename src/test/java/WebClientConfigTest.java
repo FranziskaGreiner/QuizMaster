@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,6 +21,9 @@ class WebClientConfigTest {
 
     private WebClientConfig webClientConfig;
 
+    @Value("${quiz-api.key}")
+    private String apiKey;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
@@ -30,7 +34,6 @@ class WebClientConfigTest {
     void webClient_returnsConfiguredWebClient() {
         // Mock the properties
         String baseUrl = "https://quizapi.io/api/v1";
-        String apiKey = "78Kd7bqZLyRKpUbVoxSSnSzmzq2lM6IrGTTaXACW";
         when(webClientConfigProperties.getQuizApiBaseUrl()).thenReturn(baseUrl);
         when(webClientConfigProperties.getQuizApiKey()).thenReturn(apiKey);
 
