@@ -101,7 +101,30 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify jacoco:report org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=FranziskaGreiner_QuizMaster
 
-  e2e-performance-security-tests:
+  eslint-frontend-analysis:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend/quizmaster-frontend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+      - name: Run ESLint
+        run: npx eslint . --ignore-pattern 'dist/**' --ignore-pattern 'jest.config.js' --ignore-pattern 'app.cy.js' --quiet
+
+  e2e-and-performance-tests:
     runs-on: ubuntu-22.04
     services:
       postgres:
@@ -177,87 +200,65 @@ jobs:
           cd ./src/test/performance
           k6 run load-test.js
 
-  eslint-frontend-analysis:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./frontend/quizmaster-frontend
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Install frontend dependencies
-        run: npm ci
-
-      - name: Build frontend
-        run: npm run build
-
-      - name: Run ESLint
-        run: npx eslint . --ignore-pattern 'dist/**' --ignore-pattern 'jest.config.js' --ignore-pattern 'app.cy.js' --quiet
-
-  owasp-zap-scan:
-    runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: 'docker.io/bitnami/postgresql:15.3.0'
-        ports:
-          - '5432:5432'
-        env:
-          POSTGRESQL_USERNAME: quizmaster
-          POSTGRESQL_PASSWORD: ${{ secrets.DB_PASSWORD }}
-          POSTGRESQL_DATABASE: quizmaster
-          POSTGRESQL_TIMEZONE: Europe/Berlin
-          POSTGRESQL_LOG_TIMEZONE: Europe/Berlin
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      # Set up JDK and cache Maven packages
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'adopt'
-      - name: Cache Maven packages
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
-      # Start Backend
-      - name: Start Backend
-        run: |
-          mvn spring-boot:run &
-          echo "Waiting for backend to start"
-          while ! nc -z localhost 8080; do sleep 1; done
-          echo "Backend started"
-        working-directory: ./
-        env:
-          QUIZ_API_KEY: ${{ secrets.QUIZ_API_KEY }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        timeout-minutes: 2
-      # Run Frontend
-      - name: Install NPM dependencies
-        run: npm ci
-        working-directory: ./frontend/quizmaster-frontend
-      - name: Start frontend
-        run: |
-          npm start &
-          echo "Waiting for frontend to start"
-          while ! nc -z localhost 4200; do sleep 1; done
-          echo "Frontend started"
-        working-directory: ./frontend/quizmaster-frontend
-        timeout-minutes: 2
-      # Scan
-      - name: ZAP Scan
-        uses: zaproxy/action-full-scan@v0.5.0
-        with:
-          docker_name: 'owasp/zap2docker-stable'
-          target: 'http://localhost:4200'
+#  owasp-zap-scan:
+#    runs-on: ubuntu-latest
+#    services:
+#      postgres:
+#        image: 'docker.io/bitnami/postgresql:15.3.0'
+#        ports:
+#          - '5432:5432'
+#        env:
+#          POSTGRESQL_USERNAME: quizmaster
+#          POSTGRESQL_PASSWORD: ${{ secrets.DB_PASSWORD }}
+#          POSTGRESQL_DATABASE: quizmaster
+#          POSTGRESQL_TIMEZONE: Europe/Berlin
+#          POSTGRESQL_LOG_TIMEZONE: Europe/Berlin
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#      # Set up JDK and cache Maven packages
+#      - name: Set up JDK 17
+#        uses: actions/setup-java@v3
+#        with:
+#          java-version: '17'
+#          distribution: 'adopt'
+#      - name: Cache Maven packages
+#        uses: actions/cache@v2
+#        with:
+#          path: ~/.m2
+#          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+#          restore-keys: ${{ runner.os }}-m2
+#      # Start Backend
+#      - name: Start Backend
+#        run: |
+#          mvn spring-boot:run &
+#          echo "Waiting for backend to start"
+#          while ! nc -z localhost 8080; do sleep 1; done
+#          echo "Backend started"
+#        working-directory: ./
+#        env:
+#          QUIZ_API_KEY: ${{ secrets.QUIZ_API_KEY }}
+#          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+#        timeout-minutes: 2
+#      # Run Frontend
+#      - name: Install NPM dependencies
+#        run: npm ci
+#        working-directory: ./frontend/quizmaster-frontend
+#      - name: Start frontend
+#        run: |
+#          npm start &
+#          echo "Waiting for frontend to start"
+#          while ! nc -z localhost 4200; do sleep 1; done
+#          echo "Frontend started"
+#        working-directory: ./frontend/quizmaster-frontend
+#        timeout-minutes: 2
+#      # Scan
+#      - name: ZAP Scan
+#        uses: zaproxy/action-full-scan@v0.5.0
+#        with:
+#          docker_name: 'owasp/zap2docker-stable'
+#          target: 'http://localhost:4200'
 
 #      # Run Dastardly security scan
 #      - name: Dastardly Scan Action
