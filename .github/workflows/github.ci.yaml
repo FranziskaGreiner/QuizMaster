@@ -181,7 +181,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: ESLint
-        uses: github/super-linter@v4
+        run: |
+          cd ./frontend/quizmaster-frontend
+          npx eslint .
         env:
           VALIDATE_ESLINT: true
 

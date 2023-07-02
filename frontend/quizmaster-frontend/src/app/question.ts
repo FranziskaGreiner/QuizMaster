@@ -4,15 +4,15 @@ import {Tag} from "./tag";
 
 export class Question {
   id: number | undefined;
-  question: string = '';
-  description: string = '';
+  question = '';
+  description = '';
   answers: Answer[] = [];
   multipleCorrectAnswers: boolean | undefined;
   correctAnswers: string[] = [];
-  correctAnswer: string = '';
-  explanation: string = '';
-  tip: string = '';
+  correctAnswer= '';
+  explanation = '';
+  tip = '';
   tags: Tag[] = [];
-  category: string = '';
+  category = '';
   difficulty: Difficulty | undefined;
 }

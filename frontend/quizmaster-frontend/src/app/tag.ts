@@ -2,6 +2,6 @@ import {Question} from "./question";
 
 export class Tag {
   id: number | undefined;
-  name: string = '';
+  name = '';
   questions: Question[] = [];
 }
