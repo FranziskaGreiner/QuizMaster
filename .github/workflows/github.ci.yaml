@@ -177,6 +177,16 @@ jobs:
           cd ./src/test/performance
           k6 run load-test.js
 
+  eslint-frontend-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ESLint
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ESLINT: true
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
 #      # Run Dastardly security scan
 #      - name: Dastardly Scan Action
 #        env:
