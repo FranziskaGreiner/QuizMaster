@@ -107,13 +107,11 @@ jobs:
 
       # SonarCloud scan
       - name: SonarCloud scan
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          organization: "franziskagreiner"
-          token: ${{ secrets.SONAR_TOKEN }}
-          projectKey: "FranziskaGreiner_QuizMaster"
-          sources: "."
-
+          args: '-Dsonar.organization=franziskagreiner -Dsonar.projectKey=FranziskaGreiner_QuizMaster -Dsonar.sources=.'
 
   e2e-performance-security-tests:
     runs-on: ubuntu-22.04
