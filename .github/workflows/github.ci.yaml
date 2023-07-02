@@ -170,6 +170,7 @@ jobs:
         working-directory: ./
         env:
           QUIZ_API_KEY: ${{ secrets.QUIZ_API_KEY }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         timeout-minutes: 2
 
       - name: Install NPM dependencies
