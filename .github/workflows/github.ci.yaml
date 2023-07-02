@@ -198,7 +198,7 @@ jobs:
         run: npm run build
 
       - name: Run ESLint
-        run: npx eslint . --ignore-pattern 'dist/**'
+        run: npx eslint . --ignore-pattern 'dist/**' --quiet
 
   owasp-zap-scan:
     runs-on: ubuntu-latest
@@ -247,8 +247,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'owasp/zap2docker-stable'
           target: 'http://localhost:8080/quiz'
-          rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
 
 #      # Run Dastardly security scan
 #      - name: Dastardly Scan Action
