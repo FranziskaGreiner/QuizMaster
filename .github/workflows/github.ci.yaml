@@ -63,7 +63,7 @@ jobs:
       - name: Frontend coverage
         run: |
           cd frontend/quizmaster-frontend
-          ng test --no-watch --code-coverage
+          npm test --no-watch --code-coverage
 
   sonar-frontend-analysis:
     runs-on: ubuntu-latest
@@ -153,6 +153,9 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
+      - name: Set JAVA_HOME
+        run: echo "JAVA_HOME=${{ env.JAVA_HOME }}" >> $GITHUB_ENV
+
       - name: Cache Maven packages
         uses: actions/cache@v2
         with:
@@ -208,5 +211,5 @@ jobs:
       - name: Dastardly Scan Action
         uses: PortSwigger/dastardly-github-action@v1.0.0
         with:
-          target-url: 'http://localhost:4200'
+          target-url: 'http://localhost:8080/quiz'
 
