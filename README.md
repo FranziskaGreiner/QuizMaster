@@ -1,11 +1,12 @@
 # QuizMaster
 
 
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=mr-duke_sqs&metric=bugs)](https://sonarcloud.io/summary/overall?id=FranziskaGreiner_QuizMaster)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=mr-duke_sqs&metric=coverage)](https://sonarcloud.io/summary/overall?id=FranziskaGreiner_QuizMaster)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=mr-duke_sqs&metric=vulnerabilities)](https://sonarcloud.io/summary/overall?id=FranziskaGreiner_QuizMaster)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=mr-duke_sqs&metric=sqale_rating)](https://sonarcloud.io/summary/overall?id=FranziskaGreiner_QuizMaster)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mr-duke_sqs&metric=alert_status)](https://sonarcloud.io/summary/overall?id=FranziskaGreiner_QuizMaster)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=bugs)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=coverage)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
 
 **Inhaltsverzeichnis**
 1. [Einführung und Ziele](#1-einführung-und-ziele)
@@ -17,7 +18,7 @@
 7. [Deployment-Sicht](#7-deployment-sicht)
 8. [Übergreifende Konzepte](#8-übergreifende-konzepte)
 9. [Architektur-Entscheidungen](#9-architektur-entscheidungen)
-10. [Qualität](#10-qualit)
+10. [Qualität](#10-qualität)
 11. [Risiken und technische Schulden](#11-risiken-und-technische-schulden)
 
 # 1. Einführung und Ziele
@@ -52,14 +53,14 @@ Die Anwendung wird demnach als Microservice Anwendung mit folgenden Bestandteile
   - Externe REST-API
 
 - **Technologische Einschränkungen**:
-Der Rahmen des Projekts gibt vor, ausschließlich Open-Source Tools und Software zu verwenden.
+Der Rahmen des Projekts gibt vor, ausschließlich Open-Source-Tools und Software zu verwenden.
 - **Zeitliche Einschränkungen**:
 Dadurch dass es sich um eine Studienarbeit handelt, steht eine sehr begrenzte Zeit zur Verfügung.
 Die Architektur wurde aus diesem Grund als einfach und schnell umsetzbar gewählt.
 - **Skills**: Die Anwendung wird von einer Entwicklerin alleine umgesetzt, wodurch die Wahl von Programmiersprachen, Frameworks und Tools teilweise aufgrund des Vorwissens der Entwicklerin getroffen wurden.
 
 # 3. Umfang und Kontext des Systems
-Um Umfang und Kontext des Systems zu veranschaulichen, wird dem [C4 Modell](https://c4model.com/) für die Sotwareentwicklung gefolgt.
+Um Umfang und Kontext des Systems zu veranschaulichen, wird dem [C4 Modell](https://c4model.com/) für die Softwareentwicklung gefolgt.
 
 **System Context Diagram**
 
@@ -71,7 +72,7 @@ Hier geht es noch nicht um Details oder verwendete Technologie, sondern mehr dar
 **Container Diagram**
 
 Im Container Diagram wird genauer auf das System und seine Bestandteile eingegangen.
-Die verschiedenen Container, als separat lauffähige Einheiten sind für dieses Projekt das Angular Frontend, das Java Backend und die PostreSQL Datenbank. 
+Die verschiedenen Container, als separat lauffähige Einheiten sind für dieses Projekt das Angular Frontend, das Java Backend und die PostgreSQL Datenbank. 
 Es wird gezeigt, wie die einzelnen Container miteinander kommunizieren und welche Aufgaben sie haben.
 
 ![Container](diagrams/ContainerDiagram.drawio.png)
@@ -87,7 +88,7 @@ Da der Umfang des Projekts sehr klein ist, wurde hier lediglich das Backend als 
 **Allgemeine Strategie**
 
 Die Anwendung folgt einer typischen Webanwendungsarchitektur mit Frontend und Backend.
-Das Backend ist für die Verarbeitung von Businesslogik, Verwaltung von Datenbankoperationen und Verarbeitung der Daten aus der externan API zuständig.
+Das Backend ist für die Verarbeitung von Businesslogik, Verwaltung von Datenbankoperationen und Verarbeitung der Daten aus der externen API zuständig.
 Das Frontend ist für die Präsentation der Daten für den Benutzer und die Verwaltung der Benutzerinteraktionen verantwortlich.
 
 **Technische Entscheidungen**
@@ -99,7 +100,7 @@ Die Anwendung wird mit folgendem Technologiestack umgesetzt:
 - Datenbank: PostgreSQL
 - Externe API: https://quizapi.io/
 
-Die Entscheidungen für diesen Technolgoiestack wurde aufgrund verschiedener Faktoren getroffen:
+Die Entscheidungen für diesen Technologie-Stack wurde aufgrund verschiedener Faktoren getroffen:
 
 <ins>Frontend: Angular
 - Modularität und Skalierbarkeit: Angular ist ein Framework, das auf Komponenten basiert und so eine klare Trennung von Verantwortlichkeiten in der Anwendung erlaubt. Diese modulare Struktur hilft bei der Organisation des Codes, fördert die Wiederverwendbarkeit von Code und macht das Projekt skalierbar.
@@ -200,13 +201,13 @@ Stattdessen wurde als Extrapunkt "Begründung" mit aufgenommen, um die wichtigst
 | *Konsequenzen* | Die Endpunkte müssen entsprechend der REST-Vorgaben strukturiert werden, da REST stark von der richtigen Gestaltung und Definition abhängig ist.                                                                                                   |
 
 
-# 10. Qualit
+# 10. Qualität
 **Qualitätsanforderungen**
 
 | Qualitätsaspekt            | Anforderung                            | Erklärung                                                                                                                    | Umsetzung/ Sicherstellung                                                                                                                   |
 |----------------------------|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | **Wartbarkeit**            | Testbarkeit                            | Die Anwendung soll durch modularen Aufbau zuverlässig testbar sein und eine Testabdeckung von mindestens 80% aufweisen.      | Statische Codeanalyse in SonarCloud, Integration der Testcoverage                                                                           |
-|                            | Aktualisierbarkeit und Erweiterbarkeit | Die Struktur der Anwendung sollte eine einfache und schnelle Aktualisieurng und Erweiterung ermöglichen.                     | MVC-Pattern, Aktualisieren von Dependencies über automatische Dependabot Pull-Requests                                                     |
+|                            | Aktualisierbarkeit und Erweiterbarkeit | Die Struktur der Anwendung sollte eine einfache und schnelle Aktualisierung und Erweiterung ermöglichen.                     | MVC-Pattern, Aktualisieren von Dependencies über automatische Dependabot Pull-Requests                                                     |
 |                            | Wirtschaftlichkeit                     | Die Kosten für Entwicklung und Betrieb der Anwendung sollen durch die Verwendung von Open-Source-Tools minimiert werden.     | Wahl des Technologie-Stacks                                                                                                                 |
 | **Usability**              | Benutzerfreundlichkeit                 | Die Benutzeroberfläche soll intuitiv und einfach zu bedienen sein, auch für Erstbenutzer.                                    | Benutzerfreundliches UI-Design, Verwendung von Angular Material, End-to-End Tests, manuelle Tests                                           |
 | **Security**               | Datensicherheit                        | Während der Kommunikation zwischen Frontend und Backend sowie beim Zugriff auf externe APIs sollen die Daten geschützt sein. | Verwendung von HTTPS                                                                                                                        |
