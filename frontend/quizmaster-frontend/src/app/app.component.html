@@ -25,10 +25,12 @@
   <button mat-raised-button color="primary" (click)="getQuestions()">Start quiz</button>
 
   <mat-card *ngIf="questions">
-    <mat-card-content *ngFor="let data of questions">
+    <mat-card-content *ngFor="let data of questions; let qIndex = index">
       <mat-card-title>{{ data.question }}</mat-card-title>
-      <div *ngFor="let answer of data.answers" mat-card-subtitle>
-        <mat-checkbox *ngIf="answer.answer">{{ answer.answer }}</mat-checkbox>
+      <div *ngFor="let answer of data.answers; let aIndex = index" mat-card-subtitle>
+        <button mat-button [ngClass]="getAnswerClass(qIndex, aIndex)" (click)="handleAnswerSelection(qIndex, aIndex)" *ngIf="answer.answer">
+          {{ answer.answer }}
+        </button>
       </div>
       <mat-divider></mat-divider>
     </mat-card-content>

@@ -252,6 +252,14 @@ mat-card, mat-card-title {
   color: white;
 }
 
+button.correct {
+  background-color: green;
+}
+
+button.incorrect {
+  background-color: red;
+}
+
 
 /* Responsive Styles */
 @media screen and (max-width: 767px) {

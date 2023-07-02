@@ -11,7 +11,7 @@ describe('Quiz App', () => {
 
     // check if each question has answers
     cy.get('mat-card-content').each(($card) => {
-      cy.wrap($card).find('mat-checkbox').should('exist')
+      cy.wrap($card).find('button').should('exist')
     })
   })
 })
