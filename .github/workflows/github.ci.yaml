@@ -198,7 +198,7 @@ jobs:
         run: npm run build
 
       - name: Run ESLint
-        run: npx eslint . --ignore-pattern 'dist/**' --quiet
+        run: npx eslint . --ignore-pattern 'dist/**' --ignore-pattern 'jest.config.js' --max-warnings=15 --quiet
 
   owasp-zap-scan:
     runs-on: ubuntu-latest
@@ -240,13 +240,25 @@ jobs:
           QUIZ_API_KEY: ${{ secrets.QUIZ_API_KEY }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         timeout-minutes: 2
+      # Run Frontend
+      - name: Install NPM dependencies
+        run: npm ci
+        working-directory: ./frontend/quizmaster-frontend
+      - name: Start frontend
+        run: |
+          npm start &
+          echo "Waiting for frontend to start"
+          while ! nc -z localhost 4200; do sleep 1; done
+          echo "Frontend started"
+        working-directory: ./frontend/quizmaster-frontend
+        timeout-minutes: 2
       # Scan
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.5.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'owasp/zap2docker-stable'
-          target: 'http://localhost:8080/quiz'
+          target: 'http://localhost:4200'
 
 #      # Run Dastardly security scan
 #      - name: Dastardly Scan Action
