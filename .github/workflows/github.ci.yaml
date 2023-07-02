@@ -192,9 +192,7 @@ jobs:
           node-version: 16
 
       - name: Install frontend dependencies
-        run: |
-          cd frontend/quizmaster-frontend
-          npm ci
+        run: npm ci
 
       - name: Run ESLint
         uses: sibiraj-s/action-eslint@v2
