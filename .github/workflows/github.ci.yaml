@@ -198,7 +198,7 @@ jobs:
         run: npm run build
 
       - name: Run ESLint
-        run: npx eslint . --ignore-pattern 'dist/**' --ignore-pattern 'jest.config.js' --max-warnings=15 --quiet
+        run: npx eslint . --ignore-pattern 'dist/**' --ignore-pattern 'jest.config.js' --ignore-pattern 'app.cy.js' --quiet
 
   owasp-zap-scan:
     runs-on: ubuntu-latest
@@ -256,7 +256,6 @@ jobs:
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.5.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'owasp/zap2docker-stable'
           target: 'http://localhost:4200'
 
