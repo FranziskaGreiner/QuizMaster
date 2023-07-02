@@ -253,11 +253,11 @@ mat-card, mat-card-title {
 }
 
 button.correct {
-  background-color: green;
+  background-color: darkgreen;
 }
 
 button.incorrect {
-  background-color: red;
+  background-color: darkred;
 }
 
 
