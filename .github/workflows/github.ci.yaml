@@ -194,6 +194,9 @@ jobs:
       - name: Install frontend dependencies
         run: npm ci
 
+      - name: Build frontend
+        run: npm run build
+
       - name: Run ESLint
         uses: sibiraj-s/action-eslint@v2
         with:
