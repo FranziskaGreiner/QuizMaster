@@ -1,5 +1,7 @@
-# QuizMaster
-
+# <p style="text-align: center;">QuizMaster</p>
+><p style="text-align: center;">Quizanwendung entwickelt im Rahmen des Moduls "Software Qualitätssicherung" an der TH Rosenheim<br>
+> Sommersemester 2023<br>
+> Franziska Greiner</p>
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=bugs)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=coverage)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
@@ -7,7 +9,7 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
-
+## Projektdokumentation
 **Inhaltsverzeichnis**
 1. [Einführung und Ziele](#1-einführung-und-ziele)
 2. [Architektur-Einschränkungen](#2-architektur-einschränkungen)
@@ -21,12 +23,35 @@
 10. [Qualität](#10-qualität)
 11. [Risiken und technische Schulden](#11-risiken-und-technische-schulden)
 
+___
+> 
+>**Lokale Ausführung der Anwendung**
+>- Konfiguration
+>  - Umgebungsvariablen setzen: *DB_PASSWORD=<datenbank-passwort>, API_KEY=<api-key>*
+>  - Evtl. Port-Anpassung: per Default wird für die Datenbank Port 5432, für das Backend Port 8080 und für das Frontend Port 4200 verwendet
+>- Installation
+>  - Datenbank: *docker-compose --up*
+>  - Backend: *mvn clean install*
+>  - Frontend: *npm i*
+>- Starten der Anwendung
+>  - Backend: *mvn spring-boot:run*
+>  - Frontend: *npm start*, im Ordner ./frontend/quizmaster-frontend
+>- Zugriff auf die Anwendung
+>  - Backend: *http://localhost:8080/*
+>  - Frontend: *http://localhost:4200/*
+>- Testen
+>  - Backend (standard): *mvn test*
+>  - Frontend (standard): *npm test*, im Ordner ./frontend/quizmaster-frontend
+>  - E2E-Test: *npx cypress run*, im Ordner ./frontend/quizmaster-frontend
+>  - Last-Test: *k6 run load-test.js*, im Ordner ./src/test/performance
+>  - ESLint: *npx eslint . --ignore-pattern 'dist/**'*, im Ordner ./frontend/quizmaster-frontend
+___
+
 # 1. Einführung und Ziele
 
 ## Fachliche Anforderungen
 QuizMaster ist eine Quizspiel-Anwendung, bei der der Nutzer Fragen und dazugehörige Antwortmöglichkeiten erhält.
 Er kann sich für eine Antwort entscheiden und sieht dann, ob diese der richtigen entspricht.
-Die Anwendung bietet außerdem die Möglichkeit, Fragen je nach Kategorie oder Schwierigkeitsgrad zu filtern.
 Klickt der User auf den Button zum Starten des Quiz, wird die externe API für 10 Fragen angefragt und diese werden in der angezeigt.
 Zudem werden immer um Mitternacht 10 neue Fragen in der Datenbank als Fallback gespeichert.
 
@@ -124,7 +149,7 @@ Für die Wahl der Frontend-, Backend- und Datenbank-Technologie war außerdem da
 Durch die Nutzung dieser Technologien in vergangenen Projekten hat sich die Wahl zusätzlich angeboten.
 
 # 5. Baustein-Sicht
-In Kapitel wurde durch Anwenden des C4-Modells bereits drei Diagramme zur Darstellung der Anwendung aufgeführt.
+In [Kapitel 3](#kapitel-3-qualität) wurde durch Anwenden des C4-Modells bereits drei Diagramme zur Darstellung der Anwendung aufgeführt.
 Wichtige Bausteine und deren Beziehungen können dort entnommen werden.
 Im Kontextdiagramm wird das Gesamtsystem als Blackbox dargestellt, als Whitebox wird es dann im Containerdiagramm genauer aufgegliedert und schließlich liefert das Komponentendiagramm eine Whitebox-Sicht auf eine Komponente der Anwendung, nämlich auf das Backend.
 Aufgrund der geringen Größe und der Einfachheit des Systems ist eine weitere Darstellung nicht nötig.
@@ -138,10 +163,9 @@ Im Folgenden werden verschiedene Szenarien der Anwendung zur Laufzeit stichpunkt
 - Angular Frontend wird von HTTP-Server zur Verfügung gestellt, wird initialisiert, lädt die erste Ansicht für den User
 
 **Betrieb**
-- User öffnet Frontend in seinem Webbrowser und startet Quiz über Button
+- User öffnet Anwendung in seinem Webbrowser und startet Quiz über Button
 - Frontend kommuniziert mit Backend, um Quizfragen von der externen API abzurufen
-
-**Fehlerfall**
+- Wenn User auf Antwort klickt, sieht er durch farbliches Feedback, ob es die richtige war
 
 **Herunterfahren der Anwendung**
 - Backend trennt Verbindung zur Datenbank
@@ -149,25 +173,53 @@ Im Folgenden werden verschiedene Szenarien der Anwendung zur Laufzeit stichpunkt
 - durch Stoppen des Docker-Containers für die Datenbank werden alle aktiven Verbindungen der PostgreSQL-Instanz beendet
 
 # 7. Deployment-Sicht
+Bei aktuellem Stand ist die Anwendung lediglich lokal ausführbar.
+In Zukunft sollte die Anwendung auf verschiedenen Umgebungen (Deployment, Test, Production) deployt werden.
 
-**Umgebung**
--
--
+Um in Zukunft ein einfaches und schnelles Deployment zu ermöglichen und wichtige Schritte zu automatisieren, wurde eine Github Pipeline erstellt.
 
-**Packaging**
-- 
--
+**Github Pipeline**
 
-**Installation**
--
--
+Ausgelöst bei jedem Push in das Repository
+- *build*
+  - JDK 17 und Node.js werden eingerichtet
+  - Backend wird gebaut (Maven: Clean, Package)
+  - Frontend wird gebaut (npm: Installieren der Abhängigkeiten, Build)
+- *unit-and-integration-tests*
+  - JDK 17 und Node.js werden eingerichtet
+  - Backend-Tests werden ausgeführt (Maven: Tests)
+  - Backend-Code-Coverage wird gemessen (Maven: Jacoco)
+  - Frontend-Tests werden ausgeführt (npm: Test)
+  - Frontend-Code-Coverage wird gemessen (npm: Test mit Code-Abdeckung)
+- *sonar-backend-analysis*
+  - JDK 17 und Maven werden eingerichtet
+  - Cache für SonarCloud und Maven wird verwendet
+  - Build und Analyse mit SonarCloud werden durchgeführt
+- *eslint-frontend-analysis*
+  - Node.js wird eingerichtet
+  - Abhängigkeiten des Frontends werden installiert
+  - Frontend wird gebaut
+  - ESLint wird ausgeführt, um statische Code-Analyse durchzuführen
+- *e2e-and-performance-tests*
+  - JDK 17 wird eingerichtet
+  - Cache für Maven wird verwendet
+  - Backend und Frontend werden gestartet
+  - E2E-Tests mit Cypress werden durchgeführt
+  - k6 wird installiert und Lasttests werden ausgeführt
 
-**Ausführung**
--
--
 
 # 8. Übergreifende Konzepte
+In diesem Punkt sollen wichtige übergreifende Konzepte angesprochen werden, die aufgrund des begrenzten Rahmens für dieses Projekt zu kurz kamen.
+Diese könnten bei einer Weiterentwicklung der Anwendung besonders berücksichtigt werden.
 
+- **Logging und Tracing**
+  - Implementierung von verbesserten Logging-Mechanismen, um wichtige Ereignisse, Fehler und Debugging-Informationen zu protokollieren. Im Moment ist lediglich die Erstellung einer einfachen Logdatei möglich.
+  - Verwendung von Tracing-Techniken, um den Fluss von Anfragen und Prozessen in der Anwendung zu verfolgen und Engpässe oder Leistungsprobleme zu identifizieren
+- **Caching**: Verwendung von Caching, um häufig abgerufene Daten zu speichern und die Performance der Anwendung zu verbessern.
+- **Internationalisierung und Lokalisierung**: Implementierung von Mehrsprachigkeit in der Anwendung, um Benutzer aus verschiedenen Ländern und Kulturen anzusprechen.
+- **Error Handling und Exception Management**
+  - Verhalten der Anwendung in Fehlerfällen verbessern
+  - Abhängigkeiten der einzelnen Komponenten minimieren
 
 
 # 9. Architektur-Entscheidungen
@@ -204,52 +256,53 @@ Stattdessen wurde als Extrapunkt "Begründung" mit aufgenommen, um die wichtigst
 # 10. Qualität
 **Qualitätsanforderungen**
 
-| Qualitätsaspekt            | Anforderung                            | Erklärung                                                                                                                    | Umsetzung/ Sicherstellung                                                                                                                   |
-|----------------------------|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| **Wartbarkeit**            | Testbarkeit                            | Die Anwendung soll durch modularen Aufbau zuverlässig testbar sein und eine Testabdeckung von mindestens 80% aufweisen.      | Statische Codeanalyse in SonarCloud, Integration der Testcoverage                                                                           |
-|                            | Aktualisierbarkeit und Erweiterbarkeit | Die Struktur der Anwendung sollte eine einfache und schnelle Aktualisierung und Erweiterung ermöglichen.                     | MVC-Pattern, Aktualisieren von Dependencies über automatische Dependabot Pull-Requests                                                     |
-|                            | Wirtschaftlichkeit                     | Die Kosten für Entwicklung und Betrieb der Anwendung sollen durch die Verwendung von Open-Source-Tools minimiert werden.     | Wahl des Technologie-Stacks                                                                                                                 |
-| **Usability**              | Benutzerfreundlichkeit                 | Die Benutzeroberfläche soll intuitiv und einfach zu bedienen sein, auch für Erstbenutzer.                                    | Benutzerfreundliches UI-Design, Verwendung von Angular Material, End-to-End Tests, manuelle Tests                                           |
-| **Security**               | Datensicherheit                        | Während der Kommunikation zwischen Frontend und Backend sowie beim Zugriff auf externe APIs sollen die Daten geschützt sein. | Verwendung von HTTPS                                                                                                                        |
-|                            |                                        |                                                                                                                              | Automatische Testausführung über Pipeline, Überprüfung auf Sicherheitslücken durch Sonarcloud, Aktualität der Dependencies durch Dependabot |
-| **Functional Suitability** | Funktionale Eignung                    | Die Anwendung sollte die grundlegenden Anforderungen erfüllen, wie das Bereitstellen von Quizfragen                          | Unit- und Integrationstests, manuelle Tests                                                                                                 |
-| **Reliability**            | Zuverlässigkeit                        | Die Anwendung sollte stabil laufen und nicht unerwartet abstürzen                                                            | Last- und End-to-End Tests                                                                                                                  |
+| Qualitätsaspekt            | Anforderung                            | Erklärung                                                                                                                | Umsetzung/ Sicherstellung                                                                                                                   |
+|----------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| **Wartbarkeit**            | Testbarkeit                            | Die Anwendung soll durch modularen Aufbau zuverlässig testbar sein und eine Testabdeckung von mindestens 80% aufweisen.  | Statische Codeanalyse in SonarCloud, Integration der Testcoverage                                                                           |
+|                            | Aktualisierbarkeit und Erweiterbarkeit | Die Struktur der Anwendung sollte eine einfache und schnelle Aktualisierung und Erweiterung ermöglichen.                 | MVC-Pattern, Aktualisieren von Dependencies über Dependabot Pull-Requests, Dokumentation der Anwendung                                      |
+|                            | Wirtschaftlichkeit                     | Die Kosten für Entwicklung und Betrieb der Anwendung sollen durch die Verwendung von Open-Source-Tools minimiert werden. | Wahl des Technologie-Stacks                                                                                                                 |
+| **Usability**              | Benutzerfreundlichkeit                 | Die Benutzeroberfläche soll intuitiv und einfach zu bedienen sein, auch für Erstbenutzer.                                | Benutzerfreundliches UI-Design, Verwendung von Angular Material, End-to-End Tests, manuelle Tests                                           |
+| **Security**               | Datensicherheit                        | Im Anwendungscode sollten keine sensiblen Daten wie Passwörter oder Keys zu finden sein.                                 | Konfiguration über Environment-Variablen und Github Secrets                                                                                 |
+|                            | Sicherheitsüberprüfung und -aktualisierung | Die Sicherheit und Aktualität der Anwendung sollte stets gewährleistet sein.                                         | Automatische Testausführung über Pipeline, Überprüfung auf Sicherheitslücken durch Sonarcloud, Aktualität der Dependencies durch Dependabot |
+| **Functional Suitability** | Funktionale Eignung                    | Die Anwendung sollte die grundlegenden Anforderungen erfüllen, wie das Bereitstellen von Quizfragen                      | Unit- und Integrationstests, manuelle Tests                                                                                                 |
+| **Reliability**            | Zuverlässigkeit                        | Die Anwendung sollte stabil laufen und nicht unerwartet abstürzen                                                        | Last- und End-to-End Tests                                                                                                                  |
 
 
 **Qualitätssichernde Maßnahmen**
 
-| Maßnahme                | Erklärung | Tools                                       | Begründung Wahl des Tools |
-|-------------------------|-----------|---------------------------------------------|---------------------------|
-| *Unit Tests*            |           | Frontend: Jest<br/> Backend: JUnit, Mockito |                           |
-| *Integration Tests*     |           | JUnit                                       |                           |
-| *E2E Tests*             |           | Cypress                                     |                           |
-| *Last Tests*            |           | k6                                          |                           |
-| *Statische Codeanalyse* |           | SonarCloud                                  |                           |
-| *Coverage Vorgabe*      |           |                                             |                           |
-| *Securitytests*         |           | Dependabot                                  |                           |
+| Maßnahme                | Tools                                       | Begründung Wahl des Tools                                                                                                                                               |
+|-------------------------|---------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *Unit Tests*            | Frontend: Jest<br/> Backend: JUnit, Mockito | Jest: Einfache Testerstellung und schneller als z.B. Karma<br/>JUnit<br/>Mockito: Einfache Mock-Erstellung und Verhaltenssimulation                                     |
+| *Integration Tests*     | JUnit                                       | Bietet Vielzahl von Annotationen und Assertionen, die speziell für Integrationstests entwickelt wurden                                                                  |
+| *E2E Tests*             | Cypress                                     | Einfacher Schreibstil und umfangreiche Funktionalitäten                                                                                                                 |
+| *Last Tests*            | k6                                          | Einfache Verwendung und umfangreiche Funktionen                                                                                                                         |
+| *Statische Codeanalyse* | Backend: SonarCloud<br/>Frontend: ESLint    | SonarCloud: Umfangreiche Funktionen zur Erkennung von Code-Qualitätsproblemen und Sicherheitslücken<br/>ESLint: flexibles Linting-Tool, speziell für JS-/TS-Anwendungen |
+| *Securitytests*         | Dependabot                                  | Einfache Integration für automatische Pull-Requests bei Aktualisierungen und Sicherheitsprobleme                                                                        |
 
-
-## Quality Tree
-
-## Quality Scenarios
+Durch die Integration der Maßnahmen in die Pipeline der Anwendung wird garantiert, dass diese bei jeder Änderung im Repository überprüft werden.
+Für die Wahl der Tools wurden außerdem die aktive Community, die Aktualität, die Vorkenntnisse der Entwicklerin und die Unterstützung berücksichtigt.
 
 # 11. Risiken und technische Schulden
 - **Limit der externen API**: Die externe Quiz-API ist auf 180 Anfragen pro Minute begrenzt, wodurch die tragbare Last des Systems stark eingeschränkt ist.
 Um eine bessere Usability zu erreichen, sollte ein Fallback eingebaut werden und dem Nutzer in der Oberfläche angezeigt werden, wenn dieses Limit erreicht ist. 
 - **Abhängigkeit von der externen API**: Die Funktionalität der Anwendung hängt von der Quiz-API ab. Es ist wichtig, den möglichen Ausfall der API zu bedenken.
 Als Fallback werden in der Datenbank 10 Fragen gespeichert.
-- ...
+- **Code Smells**: Um die technischen Schulden der Anwendung gering zu halten, ist darauf zu achten die Code Smells, die von SonarCloud und ESLint erkannt werden stets zu beseitigen
+- **Testabdeckung**: Es sollte darauf geachtet werden, die Testabdeckung sowohl für Frontend, als auch für Backend über 80 % zu halten, um potenzielle Risiken bestmöglich zu vermeiden.
+- **Passwörter und Keys**: Beim Weiterentwickeln der Anwendung muss auch in Zukunft darauf geachtet werden, dass sensible Daten wie Passwörter nicht im Code zu finden sind. Außerdem sind sie nach wie vor über die Verfolgung der Git Commits einsehbar, das müsste im Bestfall bereinigt werden.
 
-________________________
 
-**Der Aufbau dieser Dokumentation orientiert sich am offiziellen arc42-Template**
+___
 
-**About arc42**
-
-arc42, the template for documentation of software and system
-architecture.
-
-Template Version 8.2 EN. (based upon AsciiDoc version), January 2023
-
-Created, maintained and © by Dr. Peter Hruschka, Dr. Gernot Starke and
-contributors. See <https://arc42.org>.
+>**Der Aufbau dieser Dokumentation orientiert sich am offiziellen arc42-Template**
+>
+>**About arc42**
+>
+>arc42, the template for documentation of software and system
+>architecture.
+>
+>Template Version 8.2 EN. (based upon AsciiDoc version), January 2023
+>
+>Created, maintained and © by Dr. Peter Hruschka, Dr. Gernot Starke and
+>contributors. See <https://arc42.org>.
+>
