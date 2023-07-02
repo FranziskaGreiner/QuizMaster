@@ -179,6 +179,9 @@ jobs:
 
   eslint-frontend-analysis:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend/quizmaster-frontend
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -200,7 +203,6 @@ jobs:
           eslint-args: '--ignore-path=frontend/quizmaster-frontend/.gitignore --quiet'
           extensions: 'js,jsx,ts,tsx'
           annotations: true
-        working-directory: frontend/quizmaster-frontend
 
 #      # Run Dastardly security scan
 #      - name: Dastardly Scan Action

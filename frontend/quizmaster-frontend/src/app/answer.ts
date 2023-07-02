@@ -1,5 +1,5 @@
 export class Answer {
   id: number | undefined;
-  answer: string = '';
+  answer = '';
   correct: boolean | undefined;
 }
