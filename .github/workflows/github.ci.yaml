@@ -65,7 +65,7 @@ jobs:
           cd frontend/quizmaster-frontend
           npm test --no-watch --code-coverage
 
-  sonar-analysis:
+  sonar-backend-analysis:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -94,27 +94,12 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      # Build and analyze backend
-      - name: Build backend and generate code coverage
-        run: mvn -B verify jacoco:report
-
-      # Build and analyze frontend
-      - name: Build frontend and generate code coverage
-        run: |
-          cd frontend/quizmaster-frontend
-          npm ci
-          npm run build
-
-      # SonarCloud scan
-      - name: SonarCloud scan
-        uses: SonarSource/sonarcloud-github-action@master
+      # Build and analyze
+      - name: Build and SonarCloud scan
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: |
-            -Dsonar.organization=franziskagreiner
-            -Dsonar.projectKey=FranziskaGreiner_QuizMaster
-            -Dsonar.sources=.
+        run: mvn -B verify jacoco:report org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=FranziskaGreiner_QuizMaster
 
   e2e-performance-security-tests:
     runs-on: ubuntu-22.04
