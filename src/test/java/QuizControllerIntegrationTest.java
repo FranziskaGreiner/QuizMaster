@@ -15,7 +15,6 @@ import java.util.Arrays;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -52,7 +51,7 @@ public class QuizControllerIntegrationTest {
     public void testStoreQuestions() throws Exception {
         doNothing().when(quizApiService).storeQuestions();
 
-        mockMvc.perform(post("/question")
+        mockMvc.perform(get("/question")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
