@@ -1,7 +1,7 @@
-# <p style="text-align: center;">QuizMaster</p>
-><p style="text-align: center;">Quizanwendung entwickelt im Rahmen des Moduls "Software Qualitätssicherung" an der TH Rosenheim<br>
+# QuizMaster
+> Quizanwendung entwickelt im Rahmen des Moduls "Software Qualitätssicherung" an der TH Rosenheim<br>
 > Sommersemester 2023<br>
-> Franziska Greiner</p>
+> Franziska Greiner
 
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=bugs)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=FranziskaGreiner_QuizMaster&metric=coverage)](https://sonarcloud.io/summary/new_code?id=FranziskaGreiner_QuizMaster)
@@ -24,27 +24,27 @@
 11. [Risiken und technische Schulden](#11-risiken-und-technische-schulden)
 
 ___
-> 
->**Lokale Ausführung der Anwendung**
->- Konfiguration
->  - Umgebungsvariablen setzen: *DB_PASSWORD=<datenbank-passwort>, API_KEY=<api-key>*
->  - Evtl. Port-Anpassung: per Default wird für die Datenbank Port 5432, für das Backend Port 8080 und für das Frontend Port 4200 verwendet
->- Installation
->  - Datenbank: *docker-compose --up*
->  - Backend: *mvn clean install*
->  - Frontend: *npm i*
->- Starten der Anwendung
->  - Backend: *mvn spring-boot:run*
->  - Frontend: *npm start*, im Ordner ./frontend/quizmaster-frontend
->- Zugriff auf die Anwendung
->  - Backend: *http://localhost:8080/*
->  - Frontend: *http://localhost:4200/*
->- Testen
->  - Backend (standard): *mvn test*
->  - Frontend (standard): *npm test*, im Ordner ./frontend/quizmaster-frontend
->  - E2E-Test: *npx cypress run*, im Ordner ./frontend/quizmaster-frontend
->  - Last-Test: *k6 run load-test.js*, im Ordner ./src/test/performance
->  - ESLint: *npx eslint . --ignore-pattern 'dist/**'*, im Ordner ./frontend/quizmaster-frontend
+
+**Lokale Ausführung der Anwendung**
+- Konfiguration
+  - Umgebungsvariablen setzen: *DB_PASSWORD="<datenbank-passwort>", API_KEY="<api-key>"*
+  - Evtl. Port-Anpassung: per Default Datenbank Port 5432, Backend Port 8080, Frontend Port 4200
+- Installation
+  - Datenbank: *docker-compose --up*
+  - Backend: *mvn clean install*
+  - Frontend: *npm i*
+- Starten der Anwendung
+  - Backend: *mvn spring-boot:run*
+  - Frontend: *npm start*, im Ordner ./frontend/quizmaster-frontend
+- Zugriff auf die Anwendung
+  - Backend: *http://localhost:8080/*
+  - Frontend: *http://localhost:4200/*
+- Testen
+  - Backend (standard): *mvn test*
+  - Frontend (standard): *npm test*, im Ordner ./frontend/quizmaster-frontend
+  - E2E-Test: *npx cypress run*, im Ordner ./frontend/quizmaster-frontend
+  - Last-Test: *k6 run load-test.js*, im Ordner ./src/test/performance
+  - ESLint: *npx eslint . --ignore-pattern 'dist/**'*, im Ordner ./frontend/quizmaster-frontend
 ___
 
 # 1. Einführung und Ziele
@@ -166,6 +166,8 @@ Im Folgenden werden verschiedene Szenarien der Anwendung zur Laufzeit stichpunkt
 - User öffnet Anwendung in seinem Webbrowser und startet Quiz über Button
 - Frontend kommuniziert mit Backend, um Quizfragen von der externen API abzurufen
 - Wenn User auf Antwort klickt, sieht er durch farbliches Feedback, ob es die richtige war
+- Endpunkt zum Abrufen der Quizfragen von der externen API, der auch vom Frontend genutzt wird: http://localhost:8080/quiz
+- Endpunkt zum Erneuern der gespeicherten Fragen in der Datenbank: http://localhost:8080/question
 
 **Herunterfahren der Anwendung**
 - Backend trennt Verbindung zur Datenbank
@@ -261,9 +263,9 @@ Stattdessen wurde als Extrapunkt "Begründung" mit aufgenommen, um die wichtigst
 | **Wartbarkeit**            | Testbarkeit                            | Die Anwendung soll durch modularen Aufbau zuverlässig testbar sein und eine Testabdeckung von mindestens 80% aufweisen.  | Statische Codeanalyse in SonarCloud, Integration der Testcoverage                                                                           |
 |                            | Aktualisierbarkeit und Erweiterbarkeit | Die Struktur der Anwendung sollte eine einfache und schnelle Aktualisierung und Erweiterung ermöglichen.                 | MVC-Pattern, Aktualisieren von Dependencies über Dependabot Pull-Requests, Dokumentation der Anwendung                                      |
 |                            | Wirtschaftlichkeit                     | Die Kosten für Entwicklung und Betrieb der Anwendung sollen durch die Verwendung von Open-Source-Tools minimiert werden. | Wahl des Technologie-Stacks                                                                                                                 |
-| **Usability**              | Benutzerfreundlichkeit                 | Die Benutzeroberfläche soll intuitiv und einfach zu bedienen sein, auch für Erstbenutzer.                                | Benutzerfreundliches UI-Design, Verwendung von Angular Material, End-to-End Tests, manuelle Tests                                           |
 | **Security**               | Datensicherheit                        | Im Anwendungscode sollten keine sensiblen Daten wie Passwörter oder Keys zu finden sein.                                 | Konfiguration über Environment-Variablen und Github Secrets                                                                                 |
 |                            | Sicherheitsüberprüfung und -aktualisierung | Die Sicherheit und Aktualität der Anwendung sollte stets gewährleistet sein.                                         | Automatische Testausführung über Pipeline, Überprüfung auf Sicherheitslücken durch Sonarcloud, Aktualität der Dependencies durch Dependabot |
+| **Usability**              | Benutzerfreundlichkeit                 | Die Benutzeroberfläche soll intuitiv und einfach zu bedienen sein, auch für Erstbenutzer.                                | Benutzerfreundliches UI-Design, Verwendung von Angular Material, End-to-End Tests, manuelle Tests                                           |
 | **Functional Suitability** | Funktionale Eignung                    | Die Anwendung sollte die grundlegenden Anforderungen erfüllen, wie das Bereitstellen von Quizfragen                      | Unit- und Integrationstests, manuelle Tests                                                                                                 |
 | **Reliability**            | Zuverlässigkeit                        | Die Anwendung sollte stabil laufen und nicht unerwartet abstürzen                                                        | Last- und End-to-End Tests                                                                                                                  |
 
@@ -279,12 +281,17 @@ Stattdessen wurde als Extrapunkt "Begründung" mit aufgenommen, um die wichtigst
 | *Statische Codeanalyse* | Backend: SonarCloud<br/>Frontend: ESLint    | SonarCloud: Umfangreiche Funktionen zur Erkennung von Code-Qualitätsproblemen und Sicherheitslücken<br/>ESLint: flexibles Linting-Tool, speziell für JS-/TS-Anwendungen |
 | *Securitytests*         | Dependabot                                  | Einfache Integration für automatische Pull-Requests bei Aktualisierungen und Sicherheitsprobleme                                                                        |
 
+Von weiteren Performancetests wurde aufgrund des Limits der externen API abgesehen.
+Der vorhandene Lasttest testet die Anwendung bis ans Limit von 180 Anfragen pro Minute.
+Durch intensives Testen wurde ermittelt, dass die API zusätzlich zum Limit der Anfragen pro Minute auch ein Tageslimit von 3000 Anfragen enthält, auch wenn das in der Doku nicht erwähnt ist.
+
 Durch die Integration der Maßnahmen in die Pipeline der Anwendung wird garantiert, dass diese bei jeder Änderung im Repository überprüft werden.
 Für die Wahl der Tools wurden außerdem die aktive Community, die Aktualität, die Vorkenntnisse der Entwicklerin und die Unterstützung berücksichtigt.
 
 # 11. Risiken und technische Schulden
 - **Limit der externen API**: Die externe Quiz-API ist auf 180 Anfragen pro Minute begrenzt, wodurch die tragbare Last des Systems stark eingeschränkt ist.
 Um eine bessere Usability zu erreichen, sollte ein Fallback eingebaut werden und dem Nutzer in der Oberfläche angezeigt werden, wenn dieses Limit erreicht ist. 
+Zusätzlich besteht vermutlich ein Tageslimit der API, wie bereits im vorherigen Punkt erwähnt. 
 - **Abhängigkeit von der externen API**: Die Funktionalität der Anwendung hängt von der Quiz-API ab. Es ist wichtig, den möglichen Ausfall der API zu bedenken.
 Als Fallback werden in der Datenbank 10 Fragen gespeichert.
 - **Code Smells**: Um die technischen Schulden der Anwendung gering zu halten, ist darauf zu achten die Code Smells, die von SonarCloud und ESLint erkannt werden stets zu beseitigen
