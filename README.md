@@ -63,7 +63,7 @@ Die Qualitätsziele, die für die Anwendung am wichtigsten sind, sind:
 - Maintainability
 - Reliability
 
-Siehe [Kapitel 10](#kapitel-10-qualität) für eine ausführliche Auflistung der Qualitätsziele.
+Siehe [Kapitel 10](#10-qualität) für eine ausführliche Auflistung der Qualitätsziele.
 
 ## Stakeholder
 Das Projekt wird im Rahmen einer Studienarbeit an der Technischen Hochschule Rosenheim umgesetzt.
@@ -149,7 +149,7 @@ Für die Wahl der Frontend-, Backend- und Datenbank-Technologie war außerdem da
 Durch die Nutzung dieser Technologien in vergangenen Projekten hat sich die Wahl zusätzlich angeboten.
 
 # 5. Baustein-Sicht
-In [Kapitel 3](#kapitel-3-qualität) wurde durch Anwenden des C4-Modells bereits drei Diagramme zur Darstellung der Anwendung aufgeführt.
+In [Kapitel 3](#3-umfang-und-kontext-des-systems) wurde durch Anwenden des C4-Modells bereits drei Diagramme zur Darstellung der Anwendung aufgeführt.
 Wichtige Bausteine und deren Beziehungen können dort entnommen werden.
 Im Kontextdiagramm wird das Gesamtsystem als Blackbox dargestellt, als Whitebox wird es dann im Containerdiagramm genauer aufgegliedert und schließlich liefert das Komponentendiagramm eine Whitebox-Sicht auf eine Komponente der Anwendung, nämlich auf das Backend.
 Aufgrund der geringen Größe und der Einfachheit des Systems ist eine weitere Darstellung nicht nötig.
